@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-231.289,0)">
+        <g id="ПОчта" transform="matrix(0.116657,0,0,0.247175,237.963,-12.8531)">
+            <rect x="-57.214" y="52" width="857.214" height="404.571" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="-57.214" y="52" width="857.214" height="404.571"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(0.857162,0,0,0.404547,-57.1883,52.0123)">
+                    <path d="M503.4,307C449.9,307 406.4,350.4 406.4,404C406.4,457.5 449.8,501 503.4,501C557,501 600.4,457.6 600.4,404C600.3,350.4 557,307 503.4,307ZM500,10C229.4,10 10,229.4 10,500C10,770.6 229.4,990 500,990C770.6,990 990,770.6 990,500C990,229.4 770.6,10 500,10ZM671.4,500.9L503.4,840.3L335.4,500.9L335.6,500.9C319.1,472.3 309.4,439.3 309.4,403.9C309.4,296.8 396.2,210 503.3,210C610.4,210 697.2,296.8 697.2,403.9C697.2,439.3 687.6,472.3 671.1,500.9L671.4,500.9Z" style="fill:rgb(151,151,153);fill-opacity:0;fill-rule:nonzero;stroke:rgb(33,160,56);stroke-width:30px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

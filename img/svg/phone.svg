@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Трубка" transform="matrix(0.116657,0,0,0.247175,6.67444,-12.8531)">
+        <rect x="-57.214" y="52" width="857.214" height="404.571" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="-57.214" y="52" width="857.214" height="404.571"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(0.853552,0,0,0.402843,-55.383,52.8643)">
+                <path d="M500,10C228.4,10 10,227.8 10,498.6C10,769.4 228.4,990 500,990C771.6,990 990,769.4 990,498.6C990,227.8 771.6,10 500,10ZM267.6,206.8L325,166.3L348.8,173.3L445.4,312.9L442.6,335.2L386.6,374.3C361.4,395.2 378.2,421.8 396.4,472C413.2,501.3 451,559.9 476.2,582.3C519.6,618.6 539.2,642.3 568.6,625.6L621.8,587.9L642.8,590.7L743.6,726.1L740.8,749.8L686.2,791.7C634.4,807.1 507,832.2 348.8,608.8C169.6,367.4 241,230.6 267.6,206.8Z" style="fill:rgb(151,151,153);fill-opacity:0;fill-rule:nonzero;stroke:rgb(33,160,56);stroke-width:30.13px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
