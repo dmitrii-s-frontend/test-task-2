@@ -1160,7 +1160,7 @@ if (!window.BX_YMapAddPlacemark)
 			[arPlacemark.LAT, arPlacemark.LON],
 			props,
 			{balloonCloseButton: true,
-			iconImageHref: '/img/svg/map-marker.svg',
+			iconImageHref: 'img/svg/map-marker.svg',
 			iconImageSize: [70, 70],
 			iconImageOffset: [-35, -70]}
 		);
