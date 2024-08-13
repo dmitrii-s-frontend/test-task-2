@@ -14,20 +14,19 @@
   text-transform: uppercase;
 }
 .send-resume-section-info-button {
-  margin: 0 auto;
+  margin: 0 auto; /* align button to center*/
 }
-.send-resume-section-info-button:active {
-  border-color: white;
+.send-resume-section-info-button:focus {
+  box-shadow: none;
 }
 /* send resume section end */
-
 
 /* MOBILE VERSION */
 @media (max-width: 991px) {
 /* send resume section */
   .send-resume-section {
-    background: url('../img/sections/01 1.png') center/cover no-repeat;
-    height: 138vw; /* image proportion = height / width => 500 / 360 * 100 */
+    background: url('../img/sections/01 1.webp') center/cover no-repeat;
+    height: 138.9vw; /* image proportion = height / width => 500 / 360 * 100 */
 
     margin-top: 57px; /* fix: header overlays send resume section */
   }
@@ -46,9 +45,12 @@
   .send-resume-section-info-button {
     font-size: 12px;
     width: 200px;
+    min-width: unset;
     height: 40px;
-    padding: 10px 21px;
+    padding: 10px 0;
   }
 /* send resume section end */
 }
+
+
 /* MOBILE VERSION END */
