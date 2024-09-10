@@ -1,56 +1,139 @@
-/* send resume section */
-.send-resume-section {
-  position: relative;
-  width: 100%;
+/* BEM BLOCKS */
+/* section block */
+.section {
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  font-size: 18px;
+  line-height: 32px;
+  color: #ffffff;
+  text-align: left;
+  font-family: 'Gotham Pro';
+  font-weight: normal;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
-.send-resume-section-info {
+.body__section {
+  margin: 0;
+  position: relative;
+}
+.section__text {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-family: 'Gotham Pro';
+  color: #ffffff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.section__inner {
   position: absolute;
   left: 50%;
   top: 85.5%;
   transform: translate(-50%, -85.5%);
   text-align: center;
 }
-.send-resume-section-info-header {
-  text-transform: uppercase;
-}
-.send-resume-section-info-button {
-  margin: 0 auto; /* align button to center*/
-}
-.send-resume-section-info-button:focus {
-  box-shadow: none;
-}
-/* send resume section end */
-
-/* MOBILE VERSION */
 @media (max-width: 991px) {
-/* send resume section */
-  .send-resume-section {
+  .section {
     background: url('../img/sections/01 1.webp') center/cover no-repeat;
     height: 138.9vw; /* image proportion = height / width => 500 / 360 * 100 */
-
-    margin-top: 57px; /* fix: header overlays send resume section */
   }
-  .send-resume-section-info-header {
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 36px;
-    margin-bottom: 15px;
-  }
-  .send-resume-section-info-text {
+  .section__text {
+    margin-bottom: 35px;
     font-size: 18px;
     font-weight: 700;
     line-height: 22px;
-    margin-bottom: 35px;
   }
-  .send-resume-section-info-button {
-    font-size: 12px;
-    width: 200px;
+  .section__fix {
+    margin-top: 57px; /* fix: header overlays send resume section */
+  }
+}
+/* section block end */
+/* heading block */
+.heading {
+  outline: none;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  font-family: "Gotham Pro";
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.section__heading {
+  margin: 0 0 15px;
+}
+@media (max-width: 991px) {
+  .heading {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+  .section__heading {
+    margin: 0 0 15px;
+  }
+}
+/* heading block end */
+/* button block */
+.button {
+  box-sizing: border-box;
+  display: block;
+  vertical-align: middle;
+  line-height: 1;
+  background-position: center center;
+  width: 200px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out;
+  box-shadow: 0px 0px 20px 0px rgba(6, 30, 39, 0.1);
+  overflow: visible;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+}
+.section__button {
+  margin: 0 auto; /* align button to center */
+}
+.button__text {
+  font-family: "Gotham Pro", "Arial", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  -webkit-text-size-adjust: 100%;
+}
+.button_color_red {
+  background-color: #dd3037;
+  border-color: #dd3037;
+}
+.button:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}
+.button:hover {
+  background-color: #901016;
+  border-color: #901016;
+}
+@media (max-width: 991px) {
+  .button {
     min-width: unset;
     height: 40px;
     padding: 10px 0;
   }
-/* send resume section end */
+  .button__text {
+    font-size: 12px;
+  }
 }
-
-
-/* MOBILE VERSION END */
+/* button block end*/
+/* BEM BLOCKS END */
