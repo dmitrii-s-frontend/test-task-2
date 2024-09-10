@@ -27,8 +27,6 @@
   .send-resume-section {
     background: url('../img/sections/01 1.webp') center/cover no-repeat;
     height: 138.9vw; /* image proportion = height / width => 500 / 360 * 100 */
-
-    margin-top: 57px; /* fix: header overlays send resume section */
   }
   .send-resume-section-info-header {
     font-size: 30px;
@@ -45,9 +43,14 @@
   .send-resume-section-info-button {
     font-size: 12px;
     width: 200px;
-    min-width: unset;
     height: 40px;
     padding: 10px 0;
+  }
+  .send-resume-section_fix_header-overlay {
+    margin-top: 57px; /* fix: header overlays send resume section */
+  }
+  .send-resume-section_fix_button-width {
+    min-width: unset; /* fix: overrides btn class but has no effect due to content is wider than min-width */
   }
 /* send resume section end */
 }
