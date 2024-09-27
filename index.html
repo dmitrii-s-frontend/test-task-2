@@ -12,7 +12,9 @@
   <link rel="stylesheet" href="bitrix/cache/css/s1/pplk/template_9e32ef5e8d27e56a7c369c2d7eb2bb20/template_9e32ef5e8d27e56a7c369c2d7eb2bb20_v1.css?1714986365438605" data-template-style="true">
   <link rel="stylesheet" href="css/styles.css">
   <!-- Stylesheets end -->
-
+  <!-- Icons -->
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
+  <!-- Icons end -->
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico" type="image/ico">
   <link rel="apple-touch-icon" href="apple.png">
@@ -200,21 +202,20 @@
       <p class="send-resume-section-info-text">
         Cтань частью нашей команды!
       </p>
-      <button class="send-resume-section-info-button btn btn--red send-resume-section_fix_button-width" type="button">
+      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width send-resume-section-info-button" type="button">
         ОТПРАВИТЬ АНКЕТУ
       </button>
     </div>
-
   </section>
 
   <section class="company-info-section text-center">
     <h2 class="company-info-section-header text-uppercase">
       о компании
     </h2>
-    <div class="company-info-section-group w-100">
+    <div class="w-100 company-info-section-group">
       <div class="container">
         <div class="row no-gutters company-info-section-group__block-gap">
-          <div class="company-info-section-group-block col-12 col-sm-12 col-md-12">
+          <div class="col-12 col-sm-12 col-md-12 company-info-section-group-block">
             <div class="company-info-section-group-block-box">
               2
             </div>
@@ -225,7 +226,7 @@
               Санкт-Петербург и Москва
             </p>
           </div>
-          <div class="company-info-section-group-block col-12 col-sm-12 col-md-12">
+          <div class="col-12 col-sm-12 col-md-12 company-info-section-group-block">
             <div class="company-info-section-group-block-box">
               >30
             </div>
@@ -233,7 +234,7 @@
               Лет среди лидеров рынка
             </p>
           </div>
-          <div class="company-info-section-group-block col-12 col-sm-12 col-md-12">
+          <div class="col-12 col-sm-12 col-md-12 company-info-section-group-block">
             <div class="company-info-section-group-block-box">
               100
             </div>
@@ -243,6 +244,47 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="departments-section">
+    <div class="departments-section-wrapper">
+      <h2 class="departments-section-header text-uppercase">
+        Выбери подразделение:
+      </h2>
+      <div class="departments-section-pills">
+        <ul class="nav nav-pills text-uppercase departments-section-nav-pills">
+          <li class="nav-item">
+            <a class="nav-link departments-section__nav-link departments-section-nav-pill active" id="department-1" data-toggle="pill" href="">
+              Строительный отдел
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link departments-section__nav-link departments-section-nav-pill" id="department-2" data-toggle="pill" href="">
+              офис
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link departments-section__nav-link departments-section-nav-pill" id="department-3" data-toggle="pill" href="">
+              финансовый отдел
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link departments-section__nav-link departments-section-nav-pill" id="department-4" data-toggle="pill" href="">
+              Отдел продаж
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link departments-section__nav-link departments-section-nav-pill" id="department-5" data-toggle="pill" href="">
+              внештатный сотрудник
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="js-departments-section-vacancies"></div>
+      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width departments-section-button" type="button">
+        откликнуться на вакансию
+      </button>
     </div>
   </section>
 
@@ -916,6 +958,7 @@
     });
   </script>
 
+  <script src="js/ajax-utils.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

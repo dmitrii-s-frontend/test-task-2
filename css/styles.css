@@ -1,3 +1,21 @@
+                           /* VACANCIES PAGE */
+/* common */
+.vacancies-page-button {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  height:  40px;
+  padding: 10px 0;
+  margin: 0 auto; /* align button to center */
+}
+.vacancies-page-button:focus {
+  box-shadow: none;
+}
+.vacancies-page-button_fix_button-width {
+  min-width: unset; /* fix: overrides btn class but has no effect due to content is wider than min-width */
+}
+
+/* common end */
 /* send resume section */
 .send-resume-section {
   position: relative;
@@ -12,12 +30,6 @@
 }
 .send-resume-section-info-header {
   text-transform: uppercase;
-}
-.send-resume-section-info-button {
-  margin: 0 auto; /* align button to center */
-}
-.send-resume-section-info-button:focus {
-  box-shadow: none;
 }
 /* send resume section end */
 /* company info section */
@@ -45,6 +57,91 @@
   color: #FFFFFF;
 }
 /* company info section end */
+/* departments-section */
+.departments-section {
+  background-color: #212121;
+}
+.departments-section-header {
+  color: #999999;
+}
+.departments-section-pills {}
+.departments-section-nav-pills {}
+.departments-section-nav-pill {}
+.departments-section__nav-link {}
+.nav-pills .departments-section__nav-link {
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.nav-pills .departments-section__nav-link.active {
+  color: #212121;
+  background-color: #999999;
+  cursor: text;
+}
+.js-departments-section-vacancies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.departments-section__card {
+  background-color: #212121;
+  border: 3px solid #999999;
+  border-radius: 30px;
+}
+.departments-section__card-body {
+  display: flex;
+  flex-direction: column;
+}
+.departments-section-vacancy-card {
+  color: #FFFFFF;
+}
+.departments-section-vacancies-info {
+  display: flex;
+  flex-direction: column;
+}
+.departments-section-vacancies-description {
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF; /* наследование ? */
+}
+.departments-section-vacancies-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.departments-section-vacancies-description-list-item {
+  display: flex; /* needed to align text ouside the marker */
+}
+.departments-section-vacancies-description-list p::before {
+  content: '•';
+}
+.departments-section-vacancies-info-name-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.departments-section-vacancies-info-name-icon {
+  display: block;
+}
+.departments-section-vacancies-info-name {
+  display: block;
+}
+.departments-section-vacancies-info-price-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.departments-section-vacancies-info-price-icon {
+  display: block;
+}
+.departments-section-vacancies-info-price {
+  display: block;
+  color: #21A038;
+}
+.js-departments-section-vacancies-icon-more {
+  display: block;
+}
+.js-departments-section-vacancies-icon-close {
+  display: block;
+}
+/* departments-section end */
 
                            /* MOBILE VERSION */
 @media (max-width: 991px) {
@@ -66,10 +163,7 @@
     margin-bottom: 35px;
   }
   .send-resume-section-info-button {
-    font-size: 12px;
     width: 200px;
-    height: 40px;
-    padding: 10px 0;
   }
   .send-resume-section_fix_header-overlay {
     margin-top: 57px; /* fix: header overlays send resume section */
@@ -106,6 +200,104 @@
     row-gap: 35px;
   }
   /* company info section end */
+  /* departments-section */
+  .departments-section {
+    padding: 45px 20px;
+  }
+  .departments-section-header {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 35px;
+  }
+  .departments-section-pills {
+    margin-bottom: 35px;
+  }
+  .departments-section-nav-pills {
+    gap: 10px;
+  }
+  .departments-section-nav-pill {
+    border: 3px solid #999999;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  .departments-section__nav-link {
+    padding: 0 16px;
+  }
+
+  .js-departments-section-vacancies {
+    row-gap: 15px;
+    min-height: 133px; /* height of a smallest card*/
+    margin-bottom: 35px;
+  }
+  .departments-section__card-body {
+    gap: 10px;
+    padding: 29px;
+  }
+  .departments-section-vacancy-card {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    width: 320px;
+  }
+  .departments-section-vacancies-info {
+    gap: 25px;
+  }
+  .departments-section-vacancies-description {
+    gap: 5px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .departments-section-vacancies-wrapper {
+    align-items: center;
+    gap: 10px;
+  }
+  .departments-section-vacancies-description-list-item {
+    width: 256px;
+  }
+  .departments-section-vacancies-description-list p::before {
+    margin: 0 5px 0 6px;
+  }
+  .departments-section-vacancies-info-name-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-name-icon {
+    background: url('../img/svg/vacancy.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-name {
+    width: 186px;
+  }
+  .departments-section-vacancies-info-price-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-price-icon {
+    background: url('../img/svg/price.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-price {
+    width: 186px;
+  }
+  .js-departments-section-vacancies-icon-more {
+    background: url('../img/svg/more.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .js-departments-section-vacancies-icon-close {
+    background: url('../img/svg/close.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .departments-section-button {
+    width: 260px;
+  }
+  /* departments-section end */
 }
 /* Small */
 @media (min-width: 576px) and (max-width: 767px) {
@@ -134,6 +326,106 @@
     row-gap: 35px;
   }
   /* company info section end */
+  /* departments-section */
+  .departments-section {
+    padding: 45px 20px;
+  }
+  .departments-section-header {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .departments-section-pills {
+    margin-bottom: 35px;
+  }
+  .departments-section-nav-pills {
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .departments-section-nav-pill {
+    border: 3px solid #999999;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  .departments-section__nav-link {
+    padding: 0 16px;
+  }
+  .js-departments-section-vacancies {
+    row-gap: 15px;
+    min-height: 133px; /* height of a smallest card*/
+    margin-bottom: 35px;
+  }
+  .departments-section__card-body {
+    gap: 10px;
+    padding: 29px;
+  }
+  .departments-section-vacancy-card {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    width: 320px;
+  }
+  .departments-section-vacancies-info {
+    gap: 25px;
+  }
+  .departments-section-vacancies-description {
+    gap: 5px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .departments-section-vacancies-wrapper {
+    align-items: center;
+    gap: 10px;
+  }
+  .departments-section-vacancies-description-list-item {
+    width: 256px;
+  }
+  .departments-section-vacancies-description-list p::before {
+    margin: 0 5px 0 6px;
+  }
+  .departments-section-vacancies-info-name-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-name-icon {
+    background: url('../img/svg/vacancy.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-name {
+    width: 186px;
+  }
+  .departments-section-vacancies-info-price-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-price-icon {
+    background: url('../img/svg/price.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-price {
+    width: 186px;
+  }
+  .js-departments-section-vacancies-icon-more {
+    background: url('../img/svg/more.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .js-departments-section-vacancies-icon-close {
+    background: url('../img/svg/close.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .departments-section-button {
+    width: 260px;
+  }
+  /* departments-section end */
 }
 /* Medium */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -162,6 +454,106 @@
     row-gap: 35px;
   }
   /* company info section end */
+  /* departments-section */
+  .departments-section {
+    padding: 45px 20px;
+  }
+  .departments-section-header {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  .departments-section-pills {
+    margin-bottom: 35px;
+  }
+  .departments-section-nav-pills {
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .departments-section-nav-pill {
+    border: 3px solid #999999;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  .departments-section__nav-link {
+    padding: 0 16px;
+  }
+  .js-departments-section-vacancies {
+    row-gap: 15px;
+    min-height: 133px; /* height of a smallest card*/
+    margin-bottom: 35px;
+  }
+  .departments-section__card-body {
+    gap: 10px;
+    padding: 29px;
+  }
+  .departments-section-vacancy-card {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    width: 320px;
+  }
+  .departments-section-vacancies-info {
+    gap: 25px;
+  }
+  .departments-section-vacancies-description {
+    gap: 5px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .departments-section-vacancies-wrapper {
+    align-items: center;
+    gap: 10px;
+  }
+  .departments-section-vacancies-description-list-item {
+    width: 256px;
+  }
+  .departments-section-vacancies-description-list p::before {
+    margin: 0 5px 0 6px;
+  }
+  .departments-section-vacancies-info-name-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-name-icon {
+    background: url('../img/svg/vacancy.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-name {
+    width: 186px;
+  }
+  .departments-section-vacancies-info-price-wrapper {
+    align-items: center;
+  }
+  .departments-section-vacancies-info-price-icon {
+    background: url('../img/svg/price.svg');
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .departments-section-vacancies-info-price {
+    width: 186px;
+  }
+  .js-departments-section-vacancies-icon-more {
+    background: url('../img/svg/more.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .js-departments-section-vacancies-icon-close {
+    background: url('../img/svg/close.svg');
+    width: 25px;
+    height: 26px;
+  }
+  .departments-section-button {
+    width: 260px;
+  }
+  /* departments-section end */
 }
                            /* MOBILE VERSION END */
                            /* DESKTOP VERSION */
@@ -174,3 +566,4 @@
 
 }
                            /* DESKTOP VERSION END */
+                           /* VACANCIES PAGE END */

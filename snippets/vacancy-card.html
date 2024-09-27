@@ -1,0 +1,41 @@
+<div class="card departments-section__card departments-section-vacancy-card">
+  <div class="card-body departments-section__card-body">
+    <div class="departments-section-vacancies-wrapper">
+      <div class="departments-section-vacancies-info">
+        <div class="departments-section-vacancies-info-name-wrapper">
+          <span class="departments-section-vacancies-info-name-icon"></span>
+          <p class="card-text departments-section-vacancies-info-name">
+            {{name}}
+          </p>
+        </div>
+        <div class="departments-section-vacancies-info-price-wrapper">
+          <span class="departments-section-vacancies-info-price-icon"></span>
+          <p class="card-text departments-section-vacancies-info-price {{case-class}}">
+            {{price}}
+          </p>
+        </div>
+      </div>
+      <span class="js-departments-section-vacancies-icon-more" id="{{toggle-class}}"></span>
+    </div><!-- department info end -->
+    <div class="departments-section-vacancies-description {{toggle-class}} d-none">
+      <p class="card-text">
+        Задачи:
+      </p>
+      <ul class="departments-section-vacancies-description-list">
+        {{tasks}}
+      </ul>
+      <p class="card-text">
+        Наши ожидания:
+      </p>
+      <ul class="departments-section-vacancies-description-list">
+        {{expectations}}
+      </ul>
+      <p class="card-text">
+        Мы предлагаем:
+      </p>
+      <ul class="card-text departments-section-vacancies-description-list">
+        {{offers}}
+      </ul>
+    </div><!-- department description end -->
+  </div>
+</div><!-- card end -->
