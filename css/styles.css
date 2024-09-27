@@ -233,7 +233,7 @@
   }
   .departments-section__card-body {
     gap: 10px;
-    padding: 29px;
+    padding: 30px 29px;
   }
   .departments-section-vacancy-card {
     font-size: 18px;
@@ -242,7 +242,7 @@
     width: 320px;
   }
   .departments-section-vacancies-info {
-    gap: 25px;
+    gap: 20px;
   }
   .departments-section-vacancies-description {
     gap: 5px;
@@ -361,7 +361,7 @@
   }
   .departments-section__card-body {
     gap: 10px;
-    padding: 29px;
+    padding: 30px 29px;
   }
   .departments-section-vacancy-card {
     font-size: 18px;
@@ -370,7 +370,7 @@
     width: 320px;
   }
   .departments-section-vacancies-info {
-    gap: 25px;
+    gap: 20px;
   }
   .departments-section-vacancies-description {
     gap: 5px;
@@ -489,7 +489,7 @@
   }
   .departments-section__card-body {
     gap: 10px;
-    padding: 29px;
+    padding: 30px 29px;
   }
   .departments-section-vacancy-card {
     font-size: 18px;
@@ -498,7 +498,7 @@
     width: 320px;
   }
   .departments-section-vacancies-info {
-    gap: 25px;
+    gap: 20px;
   }
   .departments-section-vacancies-description {
     gap: 5px;
