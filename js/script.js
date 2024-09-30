@@ -203,13 +203,15 @@
     addVacancyCards(data);
   });
 
-
   $(document).ready(function() {
     // Fire event after page is loaded to load vacancies
     $(".nav-pills a:first").click();
   });
 
-})(window);
+})();
+
+
+
 
 /* departments-section end */
                            /* VACANCIES PAGE END */

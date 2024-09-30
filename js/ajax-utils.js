@@ -11,7 +11,7 @@
     if (window.XMLHttpRequest) {
       return new XMLHttpRequest();
     } else {
-      global.alert("Ajax is not supported!");
+      window.alert("Ajax is not supported!");
       return null;
     }
   };
@@ -26,7 +26,7 @@
     };
     request.open("GET", requestUrl);
     request.send(null);
-  }
+  };
 
   /*
     Handle valid request (ready and not an error)
@@ -40,4 +40,4 @@
 
   window.$ajaxUtils = ajaxUtils;
 
-})(window);
+ })();
