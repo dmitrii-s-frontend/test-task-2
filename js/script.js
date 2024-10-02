@@ -1,6 +1,6 @@
                            /* VACANCIES PAGE */
-/* departments-section */
 (function () {
+/* departments-section */
   var CLOSE_ICON_CLASS = "js-departments-section-vacancies-icon-close";
   var MORE_ICON_CLASS = "js-departments-section-vacancies-icon-more";
   var VACANCIES_CLASS = "js-departments-section-vacancies";
@@ -132,6 +132,7 @@
     var result = "";
     for (var i = 0; i < data.length; i++) {
       var card = vacancyCardSnippet;
+      var name, price, tasks, expectations, offers;
       var cardData = data[i];
       var name = cardData.info.name;
       var price = cardData.info.price;
@@ -207,11 +208,7 @@
     // Fire event after page is loaded to load vacancies
     $(".nav-pills a:first").click();
   });
+/* departments-section end */
 
 })();
-
-
-
-
-/* departments-section end */
                            /* VACANCIES PAGE END */

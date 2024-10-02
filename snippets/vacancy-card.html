@@ -1,23 +1,23 @@
-<div class="card departments-section__card departments-section-vacancy-card">
-  <div class="card-body departments-section__card-body">
-    <div class="departments-section-vacancies-wrapper">
-      <div class="departments-section-vacancies-info">
-        <div class="departments-section-vacancies-info-name-wrapper">
+<div class="card departments-section-vacancy-card">
+  <div class="d-flex flex-column card-body departments-section-vacancy-card-body">
+    <div class="d-flex flex-row align-items-center departments-section-vacancies-wrapper">
+      <div class="d-flex flex-column departments-section-vacancies-info">
+        <div class="d-flex flex-row align-items-center departments-section-vacancies-info-name-wrapper">
           <span class="departments-section-vacancies-info-name-icon"></span>
-          <p class="card-text departments-section-vacancies-info-name">
+          <p class="d-block card-text departments-section-vacancies-info-name">
             {{name}}
           </p>
         </div>
-        <div class="departments-section-vacancies-info-price-wrapper">
+        <div class="d-flex flex-row align-items-center departments-section-vacancies-info-price-wrapper">
           <span class="departments-section-vacancies-info-price-icon"></span>
-          <p class="card-text departments-section-vacancies-info-price {{case-class}}">
+          <p class="d-block card-text departments-section-vacancies-info-price {{case-class}}">
             {{price}}
           </p>
         </div>
       </div>
       <span class="js-departments-section-vacancies-icon-more" id="{{toggle-class}}"></span>
     </div><!-- department info end -->
-    <div class="departments-section-vacancies-description {{toggle-class}} d-none">
+    <div class="d-flex flex-column departments-section-vacancies-description {{toggle-class}} d-none">
       <p class="card-text">
         Задачи:
       </p>
