@@ -1,16 +1,44 @@
                            /* VACANCIES PAGE */
 (function () {
+/* common */
+  var CLOSE_ICON_CLASS = "js-vacancies-page-icon-close";
+  var MORE_ICON_CLASS = "js-vacancies-page-icon-more";
+
+  // toggle vacancy description
+  function toggleDescriptionVisibility (iconId) {
+    $("#" + iconId).click(function(){
+      var toggle = document.getElementById(iconId);
+      var description = document.getElementsByClassName(iconId);
+      toggle.className = toggle.classList.contains(CLOSE_ICON_CLASS)
+                        ? MORE_ICON_CLASS
+                        : CLOSE_ICON_CLASS;
+      description[0].classList.toggle(HIDE_ELEMENT_CLASS);
+    });
+  };
+
+  // create icon id and description class
+  // to link icon's click event with description's visibility
+  function addTogglers(cardSelector, togglePattern, iconClass, descClass) {
+    $(cardSelector).each(function(index, element) {
+      var toggleId = togglePattern + (index + 1);
+      var prev = $(element).find("." + descClass).attr("class");
+      $(element).find("." + iconClass).attr("id", toggleId);
+      $(element).find("." + descClass).attr("class", prev + " " + toggleId);
+      toggleDescriptionVisibility(toggleId);
+    });
+  };
+
+/* common end */
 /* departments-section */
-  var CLOSE_ICON_CLASS = "js-departments-section-vacancies-icon-close";
-  var MORE_ICON_CLASS = "js-departments-section-vacancies-icon-more";
   var VACANCIES_CLASS = "js-departments-section-vacancies";
   var UPPERCASE_CLASS = "text-uppercase";
   var HIDE_ELEMENT_CLASS = "d-none";
 
   var VACANCY_CARD_HTML = "snippets/vacancy-card.html";
   var VACANCY_CARD_LIST_ITEM_HTML = "snippets/vacancy-card-list-item.html";
-  var TOGGLE_PATTERN = "dt-";
-  var LOVER_CASE_VALUE = "Обсуждается на собеседовании";
+  var TOGGLE_PATTERN_DEPARTMENTS = "dt-";
+  var LOWER_CASE_VALUE = "Обсуждается на собеседовании";
+  var VACANCY_DESCRIPTION_CLASS = "js-departments-section-vacancies-description";
 
   // vacancies data, temporary solution
   var vacancies = {
@@ -108,25 +136,6 @@
                   }]
   };
 
-  // toggle vacancy description
-  function toggleDescriptionVisibility (iconId) {
-    $("#" + iconId).click(function(){
-      var toggle = document.getElementById(iconId);
-      var description = document.getElementsByClassName(iconId);
-      toggle.className = toggle.classList.contains(CLOSE_ICON_CLASS)
-                        ? MORE_ICON_CLASS
-                        : CLOSE_ICON_CLASS;
-      description[0].classList.toggle(HIDE_ELEMENT_CLASS);
-    });
-  };
-
-  // add listeners to descriptions
-  function addListenersToDescriptions (length) {
-    for (var i = 1; i <= length; i++) {
-      toggleDescriptionVisibility(TOGGLE_PATTERN + i);
-    }
-  };
-
   // build vacancy cards
   function buildVacancyCards(vacancyCardSnippet, listItemSnippet, data) {
     var result = "";
@@ -139,8 +148,7 @@
       var tasks = cardData.description.tasks;
       var expectations = cardData.description.expectations;
       var offers = cardData.description.offers;
-      var toggleClass = TOGGLE_PATTERN + (i + 1);
-      var caseClass = price !== LOVER_CASE_VALUE ? UPPERCASE_CLASS : "";
+      var caseClass = price !== LOWER_CASE_VALUE ? UPPERCASE_CLASS : "";
 
       var tasksItems =
         createVacancyCardListItems (listItemSnippet, tasks);
@@ -154,14 +162,14 @@
       card = changePlaceholder(card, "tasks", tasksItems);
       card = changePlaceholder(card, "expectations", expectationsItems);
       card = changePlaceholder(card, "offers", offersItems);
-      card = changePlaceholder(card, "toggle-class", toggleClass);
       card = changePlaceholder(card, "case-class", caseClass);
 
       result += card;
     }
 
     $("." + VACANCIES_CLASS).html(result);
-    addListenersToDescriptions(data.length);
+    addTogglers(".departments-section .card", TOGGLE_PATTERN_DEPARTMENTS,
+      MORE_ICON_CLASS, VACANCY_DESCRIPTION_CLASS);
   };
 
   // change placeholder '{{placeholder}}' in a text using 'value'
@@ -209,6 +217,14 @@
     $(".nav-pills a:first").click();
   });
 /* departments-section end */
+/* advantages-section */
+  var TOGGLE_PATTERN_ADVANTAGES = "at-";
+  var ADVANTAGE_DESCRIPTION_CLASS = "js-advantages-section-card-body-description";
 
+  $(document).ready(function() {
+    addTogglers(".advantages-section .card", TOGGLE_PATTERN_ADVANTAGES,
+      MORE_ICON_CLASS, ADVANTAGE_DESCRIPTION_CLASS);
+  });
+/* advantages-section end */
 })();
                            /* VACANCIES PAGE END */

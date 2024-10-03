@@ -20,6 +20,16 @@
   font-weight: 700;
   line-height: 22px;
 }
+.js-vacancies-page-icon-more {
+  background: url('../img/svg/more.svg');
+  width: 25px;
+  height: 26px;
+}
+.js-vacancies-page-icon-close {
+  background: url('../img/svg/close.svg');
+  width: 25px;
+  height: 26px;
+}
 
 /* common end */
 /* send resume section */
@@ -133,7 +143,7 @@
 .departments-section-vacancies-info {
   gap: 20px;
 }
-.departments-section-vacancies-description {
+.js-departments-section-vacancies-description {
   gap: 5px;
   font-size: 12px;
   line-height: 15px;
@@ -169,16 +179,6 @@
   color: #21A038;
   width: 186px;
 }
-.js-departments-section-vacancies-icon-more {
-  background: url('../img/svg/more.svg');
-  width: 25px;
-  height: 26px;
-}
-.js-departments-section-vacancies-icon-close {
-  background: url('../img/svg/close.svg');
-  width: 25px;
-  height: 26px;
-}
 .departments-section-button {
   width: 260px;
 }
@@ -186,9 +186,33 @@
 /* advantages-section */
 .advantages-section {
   padding: 45px 0;
+  background-color: #111311;
 }
 .advantages-section-header {
   margin-bottom: 20px;
+}
+.advantages-section-card {
+  background-color: #111311;
+  border: 1px solid #111311;
+  border-radius: 0;
+}
+.advantages-section-card-body {
+  padding: 15px 20px;
+  gap: 15px;
+  font-size: 18px;
+  line-height: 22px;
+}
+.advantages-section-card-body-info {
+  gap: 15px;
+}
+.advantages-section-card-body-info-text {
+  width: 280px;
+  font-weight: 700;
+}
+.advantages-section-card-body-description-text {}
+.advantages-section-line {
+  margin: 0;
+  border-top: 3px solid #999999;
 }
 /* advantages-section end */
                            /* MOBILE VERSION */
