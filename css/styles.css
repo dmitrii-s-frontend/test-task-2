@@ -197,22 +197,28 @@
   border-radius: 0;
 }
 .advantages-section-card-body {
-  padding: 15px 20px;
-  gap: 15px;
+  padding: 0 20px;
   font-size: 18px;
   line-height: 22px;
 }
 .advantages-section-card-body-info {
+  padding: 15px 0;
   gap: 15px;
 }
 .advantages-section-card-body-info-text {
   width: 280px;
   font-weight: 700;
 }
-.advantages-section-card-body-description-text {}
+.js-advantages-section-card-body-description {
+  padding-bottom: 15px;
+}
+.advantages-section-card-body-description-text {
+  width: 320px;
+}
 .advantages-section-line {
   margin: 0;
   border-top: 3px solid #999999;
+  width: 360px; /* is used to prevent flex container to make hr's width = 0 */
 }
 /* advantages-section end */
                            /* MOBILE VERSION */
