@@ -30,6 +30,12 @@
   width: 25px;
   height: 26px;
 }
+.vacancies-page-blick {
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+}
 
 /* common end */
 /* send resume section */
@@ -37,24 +43,24 @@
   background: url('../img/sections/01 1.webp') center/cover no-repeat;
   height: 138.9vw; /* image proportion = height / width => 500 / 360 * 100 */
 }
-.send-resume-section-info {
+.send-resume-section-wrapper {
   left: 50%;
   top: 85.5%;
   transform: translate(-50%, -85.5%);
 }
-.send-resume-section-info-header {
+.send-resume-section-header {
   font-size: 30px;
   font-weight: 700;
   line-height: 36px;
   margin-bottom: 15px;
 }
-.send-resume-section-info-text {
+.send-resume-section-text {
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
   margin-bottom: 35px;
 }
-.send-resume-section-info-button {
+.send-resume-section-button {
   width: 200px;
 }
 .send-resume-section_fix_header-overlay {
@@ -66,6 +72,7 @@
   padding: 45px 0;
   background-color: #212121;
 }
+.company-info-section-wrapper {}
 .company-info-section-header {
   margin-bottom: 35px;
 }
@@ -97,6 +104,7 @@
   background-color: #212121;
   padding: 45px 20px;
 }
+.departments-section-wrapper {}
 .departments-section-header {
   margin-bottom: 35px;
 }
@@ -140,6 +148,9 @@
   gap: 10px;
   padding: 30px 29px;
 }
+.departments-section-vacancies-wrapper {
+  gap: 10px;
+}
 .departments-section-vacancies-info {
   gap: 20px;
 }
@@ -147,9 +158,6 @@
   gap: 5px;
   font-size: 12px;
   line-height: 15px;
-}
-.departments-section-vacancies-wrapper {
-  gap: 10px;
 }
 .departments-section-vacancies-description-list-item {
   width: 256px;
@@ -188,9 +196,11 @@
   padding: 45px 0;
   background-color: #111311;
 }
+.advantages-section-wrapper {}
 .advantages-section-header {
   margin-bottom: 20px;
 }
+.advantages-section-cards {}
 .advantages-section-card {
   background-color: #111311;
   border: 1px solid #111311;
@@ -221,6 +231,88 @@
   width: 360px; /* is used to prevent flex container to make hr's width = 0 */
 }
 /* advantages-section end */
+/* products-section */
+.products-section {
+  padding: 45px 0;
+}
+
+/* products-section end */
+/* career-section */
+.career-section {
+  padding: 45px 0;
+  background-color: #111311;
+}
+
+/* career-section end */
+/* motivation-section */
+.motivation-section {
+  padding: 45px 0px 35px;
+  background-color: #212121;
+  font-weight: 700;
+  font-size: 18px;
+  height: 567px;
+}
+.motivation-section-wrapper {}
+.motivation-section-text-wrapper {
+  gap: 15px;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, -0%);
+  width: 320px;
+  z-index: 1;
+}
+.motivation-section-image-holder-wrapper {
+  padding: 43px 0 58px;
+  z-index: 1;
+}
+.motivation-section-image-holder {
+  background: url('../img/svg/team.svg') center/cover no-repeat;
+  width: 360px;
+  height: 386px;
+  margin: 0 auto;
+}
+.motivation-section-blick-1 {
+  width: 159.99px;
+  height: 159.99px;
+  background-color: #3D9542;
+  filter: blur(100px);
+  transform: translate(-49%, -33%);
+}
+.motivation-section-blick-2 {
+  width: 341.24px;
+  height: 341.24px;
+  background-color: rgba(54, 133, 59, 0.52);
+  filter: blur(163px);
+  transform: translate(12%, -65%);
+}
+.motivation-section-blick-3 {
+  width: 170.15px;
+  height: 170.15px;
+  background-color: rgba(127, 206, 132, 0.83);
+  filter: blur(163px);
+  transform: translate(-138%, -10%);
+}
+.motivation-section-text {
+  line-height: 24px;
+}
+.motivation-section-block {
+  padding: 20px 26px;
+  border: 3px solid #36853B;
+  box-shadow: 0px 0px 10px rgba(79, 183, 86, 0.7), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  width: 320px;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -100%);
+  z-index: 2;
+}
+.motivation-section-block-text {
+  margin-bottom: 20px;
+  line-height: 22px;
+}
+.motivation-section-button {}
+/* motivation-section end */
                            /* MOBILE VERSION */
 /* Extra small */
 @media (max-width: 575px) {
