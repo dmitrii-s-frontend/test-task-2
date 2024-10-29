@@ -10,11 +10,10 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="bitrix/cache/css/s1/pplk/template_9e32ef5e8d27e56a7c369c2d7eb2bb20/template_9e32ef5e8d27e56a7c369c2d7eb2bb20_v1.css?1714986365438605" data-template-style="true">
+  <link rel="stylesheet" href="vendor/npm/swiper%4011/swiper-bundle.min.css">
+  <link rel="stylesheet" href="vendor/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="css/styles.css">
   <!-- Stylesheets end -->
-  <!-- Icons -->
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
-  <!-- Icons end -->
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.ico" type="image/ico">
   <link rel="apple-touch-icon" href="apple.png">
@@ -380,11 +379,66 @@
     </div>
   </section>
 
+  <!-- <section class="products-section portfolio-index outer portfolio__block portfolio__block-foto"> -->
   <section class="products-section">
     <div class="products-section-wrapper">
-      <h2 class="text-center text-uppercase vacancies-page-header">
+      <h2 class="text-center text-uppercase vacancies-page-header products-section-header">
         продукты компании
       </h2>
+      <div id="tabs__portfolio" class="tabs-index">
+        <ul class="tabs-index__tab">
+          <li><a class="text-uppercase" href="#tabs-1">БАНИ</a></li>
+          <li><a class="text-uppercase" href="#tabs-2">ДОМА</a></li>
+        </ul>
+        <div id="tabs-1" class="products-section-ui-tabs-panel">
+          <div class="swiper-container products-section-swiper-container">
+            <div class="swiper-wrapper products-section-swiper-wrapper">
+              <div class="swiper-slide">
+                  <img src="upload/iblock/bef/638n54uk7p39vfkcr6one2spuyc5dhuq.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/0f8/ly73963djir513x17b50dfskvwm6z79j.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/05c/xj1opj1me1impfmh0aqgi6l4azqprv7e.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/b57/73j4suc5hel21h095c462b9jck0p6tzm.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/289/krerfa0yl0nktx3as682nh5l5pkadczc.webp">
+              </div>
+            </div>
+            <div class="swiper-pagination products-section-swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div id="tabs-2">
+          <div class="swiper-container products-section-swiper-container">
+            <div class="swiper-wrapper products-section-swiper-wrapper">
+              <div class="swiper-slide">
+                  <img src="upload/iblock/be3/l2bt6tr6t4pynuaca1qqri9x79r2p81k.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/263/5h4wf85wmmqznfyvjeocr61ir6fsecgg.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/c7b/9j8s1so8x0smjas73qi7ip3zim14ejwf.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/109/xlqpxwvkvf19b92puyjz717lcariyc0n.webp">
+              </div>
+              <div class="swiper-slide">
+                <img src="upload/iblock/315/pm0g0hyudvw0dbqn2ha20tk7166s2xkh.webp">
+              </div>
+            </div>
+            <div class="swiper-pagination products-section-swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -826,7 +880,8 @@
 
   <script src="bitrix/js/main/jquery/jquery-3.6.0.min.js?171414288589501"></script>
   <script src="bitrix/cache/js/s1/pplk/template_c8b67094a336cbdf56abd41461d35407/template_c8b67094a336cbdf56abd41461d35407_v1_updated.js?1714986365796453"></script>
-
+  <script src="vendor/npm/swiper%4011/swiper-bundle.min.js"></script>
+  <script src="vendor/ui/1.13.2/jquery-ui.js"></script>
   <!-- BX-->
   <script type="text/javascript">
     if (!window.BX) window.BX = {};

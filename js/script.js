@@ -226,5 +226,38 @@
       MORE_ICON_CLASS, ADVANTAGE_DESCRIPTION_CLASS);
   });
 /* advantages-section end */
+/* products-section */
+  $(function() {
+      $("#tabs__portfolio").tabs();
+  });
+  var swiper = new Swiper('.products-section-swiper-container', {
+        loop: true,
+        speed: 0,
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        centeredSlides: true,
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 50,
+          modifier: 1,
+          scale: 0.8,
+          slideShadows : true
+        },
+        grabCursor: false,
+        parallax: false,
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+
+/* products-section end */
 })();
                            /* VACANCIES PAGE END */

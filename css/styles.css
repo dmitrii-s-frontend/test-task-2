@@ -235,6 +235,77 @@
 .products-section {
   padding: 45px 0;
 }
+.products-section-header {
+  margin-bottom: 35px;
+}
+.tabs-index.ui-tabs .tabs-index__tab.ui-tabs-nav {
+  gap: 5px;
+}
+.tabs-index.ui-tabs .tabs-index__tab.ui-tabs-nav .ui-tabs-anchor {
+  border-radius: 5px;
+}
+.tabs-index.ui-tabs .tabs-index__tab li {
+  width: 110px;
+}
+#tabs__portfolio .ui-tabs-nav {
+  margin-bottom: 35px;
+}
+.ui-tabs .products-section-ui-tabs-panel {
+  padding: 0 30px 50px;
+}
+.products-section-swiper-container {
+  line-height: 0;
+}
+.products-section-swiper-wrapper {}
+.products-section-swiper-container .swiper-slide {
+  width: 46vw !important; /* important needed to ovveride width set by javascript */
+  height: 37.2vh;
+  border-radius: 10px;
+  overflow: hidden; /* needed to make border-radius visible */
+}
+.products-section-swiper-container .swiper-slide img {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 100%;
+}
+.products-section-swiper-container .swiper-slide-active {
+  box-shadow: 0px 0px 0px 5px rgba(217, 217, 217, 0.25);
+}
+.products-section-swiper-container .swiper-button-next {
+  right: -25px;
+}
+.products-section-swiper-container .swiper-button-prev {
+  left: -25px;
+}
+.products-section-swiper-container .swiper-button-next:after {
+  content: url('../img/svg/arrow-right.svg');
+}
+.products-section-swiper-container .swiper-button-prev:after {
+  content: url('../img/svg/arrow-left.svg');
+}
+.products-section-swiper-container .swiper-notification {
+  display: inline; /* needed to delete empty space */
+}
+.products-section-swiper-pagination {}
+.products-section-swiper-pagination.swiper-pagination-bullets {
+  bottom: -50px;
+}
+.products-section-swiper-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: #888988;
+  opacity: 1;
+}
+.products-section-swiper-pagination .swiper-pagination-bullet-active {
+  width: 42.6px;
+  height: 15px;
+  background: #FFFFFF;
+  border-radius: 25px;
+}
+.products-section-swiper-pagination.swiper-pagination-horizontal .swiper-pagination-bullet {
+  margin: 0 4.5px;
+}
+
 
 /* products-section end */
 /* career-section */
