@@ -231,23 +231,22 @@
       $("#tabs__portfolio").tabs();
   });
   var swiper = new Swiper('.products-section-swiper-container', {
-        loop: true,
-        speed: 0,
-        slidesPerView: 'auto',
-        spaceBetween: 10,
-        centeredSlides: true,
-        effect: 'coverflow',
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 50,
-          modifier: 1,
-          scale: 0.8,
-          slideShadows : true
-        },
-        grabCursor: false,
-        parallax: false,
-
+    loop: true,
+    speed: 0,
+    slidesPerView: 'auto',
+    spaceBetween: 12, // property is used in combination with coverflowEffect's scale property
+    centeredSlides: true,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 50,
+      modifier: 1,
+      scale: 0.86, // number to create top / bottom empty space = 17px for next / prev slides
+      slideShadows : true
+    },
+    grabCursor: false,
+    parallax: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true

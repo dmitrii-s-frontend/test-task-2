@@ -238,6 +238,7 @@
 .products-section-header {
   margin-bottom: 35px;
 }
+.products-section-wrapper {}
 .tabs-index.ui-tabs .tabs-index__tab.ui-tabs-nav {
   gap: 5px;
 }
@@ -245,21 +246,23 @@
   border-radius: 5px;
 }
 .tabs-index.ui-tabs .tabs-index__tab li {
-  width: 110px;
+  width: 108px;
+  line-height: 20px;
 }
 #tabs__portfolio .ui-tabs-nav {
   margin-bottom: 35px;
 }
 .ui-tabs .products-section-ui-tabs-panel {
-  padding: 0 30px 50px;
+  padding: 0 0px 50px;
 }
 .products-section-swiper-container {
   line-height: 0;
+
 }
 .products-section-swiper-wrapper {}
 .products-section-swiper-container .swiper-slide {
-  width: 46vw !important; /* important needed to ovveride width set by javascript */
-  height: 37.2vh;
+  width: 46vw !important; /* important needed to override width set by javascript */
+  height: 50.7vw; /* 182 / 165 * 100 = 110.3% from width */
   border-radius: 10px;
   overflow: hidden; /* needed to make border-radius visible */
 }
@@ -271,17 +274,29 @@
 .products-section-swiper-container .swiper-slide-active {
   box-shadow: 0px 0px 0px 5px rgba(217, 217, 217, 0.25);
 }
+.products-section-swiper-container .swiper-button-next,
+.products-section-swiper-container .swiper-button-prev {
+  /* size of right / left arrow image */
+  width: 18px;
+  height: 30px;
+
+  top: 52.5%;
+}
 .products-section-swiper-container .swiper-button-next {
-  right: -25px;
+  right: 3.9%; /* 14 / 360 * 100 = 3.9% */
 }
 .products-section-swiper-container .swiper-button-prev {
-  left: -25px;
+  left: 3.9%; /* 14 / 360 * 100 = 3.9% */
+}
+.products-section-swiper-container .swiper-button-next:after,
+.products-section-swiper-container .swiper-button-prev:after {
+  font-size: 0;
 }
 .products-section-swiper-container .swiper-button-next:after {
-  content: url('../img/svg/arrow-right.svg');
+  content: url('../img/svg/arrow-right-mobile.svg');
 }
 .products-section-swiper-container .swiper-button-prev:after {
-  content: url('../img/svg/arrow-left.svg');
+  content: url('../img/svg/arrow-left-mobile.svg');
 }
 .products-section-swiper-container .swiper-notification {
   display: inline; /* needed to delete empty space */
@@ -305,8 +320,6 @@
 .products-section-swiper-pagination.swiper-pagination-horizontal .swiper-pagination-bullet {
   margin: 0 4.5px;
 }
-
-
 /* products section end */
 /* career section */
 .career-section {
@@ -398,11 +411,48 @@
 }
 /* Small */
 @media (min-width: 576px) and (max-width: 767px) {
-
+  /* common */
+  .vacancies-page-header {
+    font-size: 28px;
+    line-height: 64px;
+  }
+  /* common end */
+  /* products section */
+  .tabs-index.ui-tabs .tabs-index__tab li {
+    width: 168px;
+  }
+  /* products section end*/
 }
 /* Medium */
 @media (min-width: 768px) and (max-width: 991px) {
-
+  /* common */
+  .vacancies-page-header {
+    font-size: 28px;
+    line-height: 64px;
+  }
+  /* common end */
+  /* products section */
+  .tabs-index.ui-tabs .tabs-index__tab li {
+    width: 168px;
+  }
+  .ui-tabs .products-section-ui-tabs-panel {
+    padding-bottom: 55px;
+  }
+  .products-section-swiper-pagination.swiper-pagination-bullets {
+    bottom: -55px;
+  }
+  .products-section-swiper-pagination .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+  }
+  .products-section-swiper-pagination .swiper-pagination-bullet-active {
+    width: 57px;
+    height: 20px;
+  }
+  .products-section-swiper-pagination.swiper-pagination-horizontal .swiper-pagination-bullet {
+    margin: 0 7px;
+  }
+  /* products section end*/
 }
                            /* MOBILE VERSION END */
                            /* DESKTOP VERSION */
