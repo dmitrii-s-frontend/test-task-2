@@ -240,7 +240,7 @@
     coverflowEffect: {
       rotate: 0,
       depth: 50,
-      scale: 0.86, // number to create top / bottom empty space = 17px for next / prev slides
+      scale: 0.86, // number to create top / bottom empty space for next / prev slides
     },
     pagination: {
       el: '.swiper-pagination',
