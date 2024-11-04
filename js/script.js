@@ -239,14 +239,9 @@
     effect: 'coverflow',
     coverflowEffect: {
       rotate: 0,
-      stretch: 0,
       depth: 50,
-      modifier: 1,
       scale: 0.86, // number to create top / bottom empty space = 17px for next / prev slides
-      slideShadows : true
     },
-    grabCursor: false,
-    parallax: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true

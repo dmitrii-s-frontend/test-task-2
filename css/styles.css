@@ -235,21 +235,21 @@
 .products-section {
   padding: 45px 0;
 }
+.products-section-wrapper {}
 .products-section-header {
   margin-bottom: 35px;
 }
-.products-section-wrapper {}
-.tabs-index.ui-tabs .tabs-index__tab.ui-tabs-nav {
+.tabs-index.ui-tabs .tabs-index__tab.products-section-ui-tabs-nav {
   gap: 5px;
 }
-.tabs-index.ui-tabs .tabs-index__tab.ui-tabs-nav .ui-tabs-anchor {
+.tabs-index.ui-tabs .tabs-index__tab.products-section-ui-tabs-nav .ui-tabs-anchor {
   border-radius: 5px;
 }
-.tabs-index.ui-tabs .tabs-index__tab li {
+.tabs-index.ui-tabs .products-section-ui-tabs-nav li {
   width: 108px;
   line-height: 20px;
 }
-#tabs__portfolio .ui-tabs-nav {
+#tabs__portfolio .products-section-ui-tabs-nav {
   margin-bottom: 35px;
 }
 .ui-tabs .products-section-ui-tabs-panel {
@@ -260,42 +260,41 @@
 
 }
 .products-section-swiper-wrapper {}
-.products-section-swiper-container .swiper-slide {
+.products-section-swiper-slide {
   width: 46vw !important; /* important needed to override width set by javascript */
   height: 50.7vw; /* 182 / 165 * 100 = 110.3% from width */
   border-radius: 10px;
   overflow: hidden; /* needed to make border-radius visible */
 }
-.products-section-swiper-container .swiper-slide img {
+.products-section-swiper-image {
   border-radius: 10px;
   object-fit: cover;
-  height: 100%;
 }
 .products-section-swiper-container .swiper-slide-active {
   box-shadow: 0px 0px 0px 5px rgba(217, 217, 217, 0.25);
 }
-.products-section-swiper-container .swiper-button-next,
-.products-section-swiper-container .swiper-button-prev {
+.products-section-swiper-button-next,
+.products-section-swiper-button-prev {
   /* size of right / left arrow image */
   width: 18px;
   height: 30px;
 
   top: 52.5%;
 }
-.products-section-swiper-container .swiper-button-next {
+.products-section-swiper-button-next {
   right: 3.9%; /* 14 / 360 * 100 = 3.9% */
 }
-.products-section-swiper-container .swiper-button-prev {
+.products-section-swiper-button-prev {
   left: 3.9%; /* 14 / 360 * 100 = 3.9% */
 }
-.products-section-swiper-container .swiper-button-next:after,
-.products-section-swiper-container .swiper-button-prev:after {
+.products-section-swiper-button-next:after,
+.products-section-swiper-button-prev:after {
   font-size: 0;
 }
-.products-section-swiper-container .swiper-button-next:after {
+.products-section-swiper-button-next:after {
   content: url('../img/svg/arrow-right-mobile.svg');
 }
-.products-section-swiper-container .swiper-button-prev:after {
+.products-section-swiper-button-prev:after {
   content: url('../img/svg/arrow-left-mobile.svg');
 }
 .products-section-swiper-container .swiper-notification {
