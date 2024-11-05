@@ -322,13 +322,121 @@
 /* products section end */
 /* career section */
 .career-section {
-  padding: 45px 0;
+  padding: 43px 20px 47px;
   background-color: #111311;
 
   /* needed to prevent blick from next section
     changes background color */
   position: relative;
   z-index: 1;
+}
+.career-section-header {
+  margin-bottom: 35px;
+}
+.career-section-text-wrapper {
+  gap: 15px;
+  margin-bottom: 35px;
+}
+.career-section-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.career-section-swiper-container {}
+.career-section-card {
+  background-color: #111311;
+  border: 1px solid #111311;
+  border-radius: 0;
+}
+.career-section-image-wrapper {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto 15px;
+}
+.career-section-image-wrapper::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-image: url('../img/svg/green-rectangle.svg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  display: block;
+}
+.career-section-image-wrapper::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-image: url('../img/svg/blick.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  top: 0;
+  display: block;
+}
+.career-section-list {
+  gap: 15px;
+}
+.career-section-list p::before {
+  content: '•';
+  margin: 0 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.career-section-card-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.career-section-image {
+  width: 240px;
+  height: 240px;
+}
+.career-section-card-title-wrapper {
+  margin-bottom: 15px;
+}
+.career-section-card-title {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.career-section-card-body {
+  padding: 0;
+}
+.career-section-swiper-button-next,
+.career-section-swiper-button-prev {
+  /* size of right / left arrow image */
+  width: 18px;
+  height: 30px;
+
+  margin-top: 0px;
+  top: 18.5%;
+}
+.career-section-swiper-button-next {
+  right: -7px;
+}
+.career-section-swiper-button-prev {
+  left: -7px;
+}
+.career-section-swiper-button-next:after,
+.career-section-swiper-button-prev:after {
+  font-size: 0;
+}
+.career-section-swiper-button-next:after {
+  content: url('../img/svg/arrow-right-mobile.svg');
+}
+.career-section-swiper-button-prev:after {
+  content: url('../img/svg/arrow-left-mobile.svg');
+}
+.career-section-swiper-container .swiper-notification {
+  display: inline; /* needed to delete empty space */
 }
 
 /* career section end */

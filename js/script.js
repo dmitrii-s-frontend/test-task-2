@@ -29,7 +29,7 @@
   };
 
 /* common end */
-/* departments-section */
+/* departments section */
   var VACANCIES_CLASS = "js-departments-section-vacancies";
   var UPPERCASE_CLASS = "text-uppercase";
   var HIDE_ELEMENT_CLASS = "d-none";
@@ -216,8 +216,8 @@
     // Fire event after page is loaded to load vacancies
     $(".nav-pills a:first").click();
   });
-/* departments-section end */
-/* advantages-section */
+/* departments section end */
+/* advantages section */
   var TOGGLE_PATTERN_ADVANTAGES = "at-";
   var ADVANTAGE_DESCRIPTION_CLASS = "js-advantages-section-card-body-description";
 
@@ -225,8 +225,8 @@
     addTogglers(".advantages-section .card", TOGGLE_PATTERN_ADVANTAGES,
       MORE_ICON_CLASS, ADVANTAGE_DESCRIPTION_CLASS);
   });
-/* advantages-section end */
-/* products-section */
+/* advantages section end */
+/* products section */
   $(function() {
       $("#tabs__portfolio").tabs();
   });
@@ -240,7 +240,7 @@
     coverflowEffect: {
       rotate: 0,
       depth: 50,
-      scale: 0.86, // number to create top / bottom empty space for next / prev slides
+      scale: 0.86 // number to create top / bottom empty space for next / prev slides
     },
     pagination: {
       el: '.swiper-pagination',
@@ -251,7 +251,16 @@
       prevEl: '.swiper-button-prev'
     }
   });
-
-/* products-section end */
+/* products section end */
+/* career section */
+  var swiper = new Swiper('.career-section-swiper-container', {
+    loop: true,
+    effect: 'coverflow',
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+/* career section end */
 })();
                            /* VACANCIES PAGE END */
