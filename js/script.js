@@ -255,7 +255,8 @@
 /* career section */
   var swiper = new Swiper('.career-section-swiper-container', {
     loop: true,
-    effect: 'coverflow',
+    slidesPerView: 'auto',
+    spaceBetween: 20,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'

@@ -331,19 +331,27 @@
   position: relative;
   z-index: 1;
 }
+.career-section-wrapper {
+  width: 320px;
+  margin: 0 auto;
+}
 .career-section-header {
   margin-bottom: 35px;
 }
 .career-section-text-wrapper {
   gap: 15px;
+  margin: 0 auto;
   margin-bottom: 35px;
+  width: 320px;
 }
 .career-section-text {
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
 }
-.career-section-swiper-container {}
+.career-section-swiper-container {
+  position: relative;
+}
 .career-section-card {
   background-color: #111311;
   border: 1px solid #111311;
@@ -383,6 +391,8 @@
 .career-section-image {}
 .career-section-list {
   gap: 15px;
+  margin: 0 auto;
+  width: 320px;
 }
 .career-section-list p::before {
   content: '•';
@@ -405,6 +415,12 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
+}
+.career-section .swiper-slide {
+  visibility: hidden; /* needed for screens from 361 to 991 */
+}
+.career-section .swiper-slide-active {
+  visibility: visible; /* needed for screens from 361 to 991 */
 }
 .career-section-card-body {
   padding: 0;
@@ -437,7 +453,6 @@
 .career-section-swiper-container .swiper-notification {
   display: inline; /* needed to delete empty space */
 }
-
 /* career section end */
 /* motivation section */
 .motivation-section {
@@ -518,27 +533,27 @@
 /* Small */
 @media (min-width: 576px) and (max-width: 767px) {
   /* common */
-  .vacancies-page-header {
+/*  .vacancies-page-header {
     font-size: 28px;
     line-height: 64px;
-  }
+  }*/
   /* common end */
   /* products section */
-  .tabs-index.ui-tabs .tabs-index__tab li {
+/*  .tabs-index.ui-tabs .tabs-index__tab li {
     width: 168px;
-  }
+  }*/
   /* products section end*/
 }
 /* Medium */
 @media (min-width: 768px) and (max-width: 991px) {
   /* common */
-  .vacancies-page-header {
+/*  .vacancies-page-header {
     font-size: 28px;
     line-height: 64px;
-  }
+  }*/
   /* common end */
   /* products section */
-  .tabs-index.ui-tabs .tabs-index__tab li {
+/*  .tabs-index.ui-tabs .tabs-index__tab li {
     width: 168px;
   }
   .ui-tabs .products-section-ui-tabs-panel {
@@ -557,7 +572,7 @@
   }
   .products-section-swiper-pagination.swiper-pagination-horizontal .swiper-pagination-bullet {
     margin: 0 7px;
-  }
+  }*/
   /* products section end*/
 }
                            /* MOBILE VERSION END */
