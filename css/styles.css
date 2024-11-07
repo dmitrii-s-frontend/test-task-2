@@ -109,7 +109,8 @@
   margin-bottom: 35px;
 }
 .departments-section-pills {
-  margin-bottom: 35px;
+  max-width: 360px;
+  margin: 0 auto 35px;
 }
 .departments-section-nav-pills {
   gap: 10px;
@@ -253,15 +254,18 @@
   margin-bottom: 35px;
 }
 .ui-tabs .products-section-ui-tabs-panel {
-  padding: 0 0px 50px;
+  padding: 5px 0px 50px;
+  width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .products-section-swiper-container {
   line-height: 0;
 }
 .products-section-swiper-wrapper {}
 .products-section-swiper-slide {
-  width: 46vw !important; /* important needed to override width set by javascript */
-  height: 50.7vw; /* 182 / 165 * 100 = 110.3% from width */
+  width: 182px !important; /* important needed to override width set by javascript */
+  height: 165px;
   border-radius: 10px;
   overflow: hidden; /* needed to make border-radius visible */
 }
@@ -507,48 +511,11 @@
 }
 /* Small */
 @media (min-width: 576px) and (max-width: 767px) {
-  /* common */
-/*  .vacancies-page-header {
-    font-size: 28px;
-    line-height: 64px;
-  }*/
-  /* common end */
-  /* products section */
-  .tabs-index.ui-tabs .tabs-index__tab li {
-    width: 168px;
-  }
-  /* products section end*/
+
 }
 /* Medium */
 @media (min-width: 768px) and (max-width: 991px) {
-  /* common */
-/*  .vacancies-page-header {
-    font-size: 28px;
-    line-height: 64px;
-  }*/
-  /* common end */
-  /* products section */
-  .tabs-index.ui-tabs .tabs-index__tab li {
-    width: 168px;
-  }
-  .ui-tabs .products-section-ui-tabs-panel {
-    padding-bottom: 55px;
-  }
-  .products-section-swiper-pagination.swiper-pagination-bullets {
-    bottom: -55px;
-  }
-  .products-section-swiper-pagination .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-  }
-  .products-section-swiper-pagination .swiper-pagination-bullet-active {
-    width: 57px;
-    height: 20px;
-  }
-  .products-section-swiper-pagination.swiper-pagination-horizontal .swiper-pagination-bullet {
-    margin: 0 7px;
-  }
-  /* products section end*/
+
 }
                            /* MOBILE VERSION END */
                            /* DESKTOP VERSION */
