@@ -17,6 +17,16 @@
   };
 
   /*
+    Handle valid request (ready and not an error)
+    using 'responseHandler' function
+  */
+  function handleResponse(request, responseHandler) {
+    if ((request.readyState == 4) && (request.status == 200)) {
+      responseHandler(request.responseText);
+    }
+  };
+
+  /*
     Makes an Ajax GET request to "requestUrl"
   */
   ajaxUtils.sendGetRequest = function (requestUrl, responseHandler) {
@@ -29,14 +39,18 @@
   };
 
   /*
-    Handle valid request (ready and not an error)
-    using 'responseHandler' function
+    Makes an Ajax POST request to "requestUrl"
   */
-  function handleResponse(request, responseHandler) {
-    if ((request.readyState == 4) && (request.status == 200)) {
-      responseHandler(request.responseText);
-    }
+  ajaxUtils.sendPostRequest = function (requestUrl, responseHandler) {
+    var request = getHttpRequest();
+    request.onreadystatechange = function() {
+      handleResponse(request, responseHandler);
+    };
+    request.open("POST", requestUrl);
+    request.setRequestHeader("Content-type", "multipart/form-data");
+    request.send(null);
   };
+
 
   window.$ajaxUtils = ajaxUtils;
 

@@ -41,6 +41,7 @@
   var VACANCY_DESCRIPTION_CLASS = "js-departments-section-vacancies-description";
 
   // vacancies data, temporary solution
+  // TODO: get corect data here!
   var vacancies = {
     "department-1": [{
                     "info": {
@@ -263,5 +264,21 @@
     }
   });
 /* career section end */
+/* modal window send resume */
+  var PHP_FILE = "ajax/resume-handler.php"; // TODO: add corect handler here!
+$("#modal-window-send-resume-vacancy-form").on("submit", function(event) {
+  event.preventDefault();
+  $ajaxUtils.sendPostRequest (PHP_FILE, function(response){
+    console.log(response);
+  });
+});
+
+/* modal window send resume end */
+/* modal window success */
+  $("#modal-success-button").on("click", function(event) {
+    // window.location.href = "https://pplk.ru/";
+    window.location.href = "http://localhost:3000/test-task-2/index.html";
+  });
+/* modal window success end */
 })();
                            /* VACANCIES PAGE END */

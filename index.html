@@ -201,7 +201,7 @@
       <p class="send-resume-section-text">
         Cтань частью нашей команды!
       </p>
-      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width send-resume-section-button" type="button">
+      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width send-resume-section-button" type="button" data-toggle="modal" data-target="#modal-window-send-resume">
         ОТПРАВИТЬ АНКЕТУ
       </button>
     </div>
@@ -283,7 +283,7 @@
         </ul>
       </div>
       <div class="d-flex flex-column align-items-center js-departments-section-vacancies"></div>
-      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width departments-section-button" type="button">
+      <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width departments-section-button" type="button" data-toggle="modal" data-target="#modal-window-send-resume">
         откликнуться на вакансию
       </button>
     </div>
@@ -573,7 +573,7 @@
         <p class="motivation-section-block-text">
           Если чувствуешь в Себе потенциал и здоровые амбиции — ждём рядом с Нами!
         </p>
-        <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width motivation-section-button" type="button">
+        <button class="btn btn--red vacancies-page-button vacancies-page-button_fix_button-width motivation-section-button" type="button" data-toggle="modal" data-target="#modal-window-send-resume">
           Присоединиться к команде
         </button>
       </div>
@@ -846,6 +846,131 @@
   </footer>
 
   <!-- MODAL WINDOWS -->
+<!-- The Modal -->
+<div class="modal" id="modal-window-send-resume">
+  <div class="modal-dialog">
+    <div class="modal-content vacancies-page-modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header vacancies-page-modal-header">
+        <button type="button" class="close vacancies-page-close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <form id="modal-window-send-resume-vacancy-form" action="#" method="post" enctype="multipart/form-data">
+        <div class="modal-body modal-window-send-resume-body">
+          <h2 class="modal-title vacancies-page-header modal-window-send-resume-title">
+            заполните анкету
+          </h2>
+          <input type="text" name="name" class="modal-window-send-resume-vacancy-form-text-input" placeholder="Ф.И.О" required>
+          <input type="tel" name="phone" class="modal-window-send-resume-vacancy-form-tel-input" placeholder="Телефон" required>
+          <p class="modal-window-send-resume-vacancy-form-list-input-title">
+            Отклик на вакансию
+          </p>
+          <input list="vacancies" name="vacancy"  class="modal-window-send-resume-vacancy-form-list-input" placeholder="Выберите вакансию" required>
+          <datalist id="vacancies">
+            <option value="Прораб">
+            <option value="Специалист службы снабжения">
+            <option value="Логист">
+            <option value="Проектировщик">
+          </datalist>
+
+          <p class="modal-window-send-resume-attach-text-title">
+            Ваше резюме
+          </p>
+          <div class="modal-window-send-resume-attach-text-wrapper">
+            <p>
+              Есть резюме в формате .pdf или .doc?
+            </p>
+            <p>
+              Приложите и отправьте его нам.
+            </p>
+          </div>
+<!--           <button type="button" class="btn btn--green vacancies-page-button modal-window-send-resume-attach-button">
+            загрузить файл
+          </button> -->
+          <input type="file" name="file" class="modal-window-send-resume-attach-button" required>
+          <div class="d-flex flex-row align-items-start modal-window-send-resume-agreement-wrapper">
+            <input type="checkbox" name="agreement" required>
+            <div class="modal-window-send-resume-agreement-text-wrapper">
+              <p>
+                Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на обработку персональных данных физическим лицом. Я осознаю, что даю Согласие на обработку персональных данных для использования предоставляемых возможностей Веб-сервиса.
+              </p>
+              <p>
+                Я достиг(ла) 18-летнего возраста
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer modal-window-send-resume-footer">
+          <button type="submit" class="btn btn--red vacancies-page-button modal-window-send-resume-footer-button">
+            отправить анкету
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+<div class="modal" id="modal-window-success">
+  <div class="modal-dialog">
+    <div class="modal-content vacancies-page-modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header vacancies-page-modal-header">
+        <button type="button" class="close vacancies-page-close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body modal-window-success-body">
+        <h2 class="modal-title vacancies-page-header modal-window-success-title">
+          анкета отправлена
+        </h2>
+        <span class="modal-window-success-body-icon"></span>
+        <div class="modal-window-success-text-wrapper">
+          <div>
+            <p>
+              Благодарим
+            </p>
+            <p>
+              за ваш отклик и интерес.
+            </p>
+          </div>
+          <div>
+            <p>
+              Мы изучим вашу анкету
+            </p>
+            <p>
+              и свяжемся с вами
+            </p>
+            <p>
+              в течение 2х дней.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer modal-window-success-footer">
+        <button id="modal-success-button" type="button" class="btn btn--red vacancies-page-button modal-window-success-footer-button">
+          на главную
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
   <div class="modal fade modal-sign-up" id="modal-header" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
