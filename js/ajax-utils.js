@@ -41,16 +41,15 @@
   /*
     Makes an Ajax POST request to "requestUrl"
   */
-  ajaxUtils.sendPostRequest = function (requestUrl, responseHandler) {
+  ajaxUtils.sendPostRequest = function (requestUrl, data, responseHandler) {
     var request = getHttpRequest();
     request.onreadystatechange = function() {
       handleResponse(request, responseHandler);
     };
     request.open("POST", requestUrl);
     request.setRequestHeader("Content-type", "multipart/form-data");
-    request.send(null);
+    request.send(data);
   };
-
 
   window.$ajaxUtils = ajaxUtils;
 
