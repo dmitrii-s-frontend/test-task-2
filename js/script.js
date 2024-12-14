@@ -41,7 +41,7 @@
   var VACANCY_DESCRIPTION_CLASS = "js-departments-section-vacancies-description";
 
   // vacancies data, temporary solution
-  // TODO: get corect data here!
+  // TODO: get corect data here from server!
   var vacancies = {
     "department-1": [{
                     "info": {
@@ -266,18 +266,30 @@
 /* career section end */
 /* modal window send resume */
   var PHP_FILE = "ajax/resume-handler.php"; // TODO: add corect handler here!
-$("#modal-window-send-resume-vacancy-form").on("submit", function(event) {
-  event.preventDefault();
-  $ajaxUtils.sendPostRequest (PHP_FILE, function(response){
-    console.log(response);
-  });
-});
+  var MODAL_WINDOW_SEND_RESUME_FORM_ID = "modal-window-send-resume-vacancy-form";
+  var MODAL_WINDOW_SEND_RESUME_ID = "modal-window-send-resume";
+  var MODAL_WINDOW_SUCCESS_ID = "modal-window-success";
 
+  $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID).on("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    handleModal(MODAL_WINDOW_SEND_RESUME_ID, "hide");
+    this.reset();
+    $ajaxUtils.sendPostRequest (PHP_FILE, formData, function(response){
+      handleModal(MODAL_WINDOW_SUCCESS_ID, "show");
+    });
+  });
+
+  // handle modal window using bootstrap modal function
+  function handleModal(modalId, modalOperation) {
+    $("#" + modalId).modal(modalOperation);
+  };
 /* modal window send resume end */
 /* modal window success */
-  $("#modal-success-button").on("click", function(event) {
-    // window.location.href = "https://pplk.ru/";
-    window.location.href = "http://localhost:3000/test-task-2/index.html";
+  var MODAL_WINDOW_BUTTON_ID = "modal-success-button";
+  var LOCATION = "https://dmitrii-s-frontend.github.io/test-task-2/"; // TODO: add corect location here!
+  $("#" + MODAL_WINDOW_BUTTON_ID).on("click", function(event) {
+    window.location.href = LOCATION;
   });
 /* modal window success end */
 })();
