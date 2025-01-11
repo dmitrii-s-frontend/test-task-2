@@ -269,25 +269,242 @@
   var MODAL_WINDOW_SEND_RESUME_FORM_ID = "modal-window-send-resume-vacancy-form";
   var MODAL_WINDOW_SEND_RESUME_ID = "modal-window-send-resume";
   var MODAL_WINDOW_SUCCESS_ID = "modal-window-success";
+  var SEND_RESUME_FORM_SELECT_DEFAULT_OPTION_ID = "modal-window-send-resume-vacancy-form-default-option";
+
+  var SEND_RESUME_ATTACH_BUTTON_ID = "modal-window-send-resume-attach-button-real";
+  var SEND_RESUME_ATTACH_FILE_NAME_CLASS = "modal-window-send-resume-attach-button-file-name";
+  var SEND_RESUME_ATTACH_BUTTON_WRAPPER_CLASS = "modal-window-send-resume-attach-button-wrapper";
+  var SEND_RESUME_ATTACH_BUTTON_LABEL_WRAPPER_CLASS = "modal-window-send-resume-attach-button-label-wrapper";
+  var SEND_RESUME_ATTACH_ERROR_CLASS = "modal-window-send-resume-attach-button-error";
+  var SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1 = "*Прикрепите резюме в формате .pdf или .doc";
+  var SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_2 = "*Прикрепите резюме";
+
 
   $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID).on("submit", function(event) {
     event.preventDefault();
-    var formData = new FormData(this);
-    handleModal(MODAL_WINDOW_SEND_RESUME_ID, "hide");
-    this.reset();
-    $ajaxUtils.sendPostRequest (PHP_FILE, formData, function(response){
-      handleModal(MODAL_WINDOW_SUCCESS_ID, "show");
-    });
+    if (isValidFormElements()) {
+      var formData = new FormData(this);
+      handleModal(MODAL_WINDOW_SEND_RESUME_ID, "hide");
+      $ajaxUtils.sendPostRequest (PHP_FILE, formData, function(response){
+        handleModal(MODAL_WINDOW_SUCCESS_ID, "show");
+      });
+    }
   });
 
   // handle modal window using bootstrap modal function
   function handleModal(modalId, modalOperation) {
     $("#" + modalId).modal(modalOperation);
   };
+
+
+  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("hide.bs.modal", function(event) {
+    // clean send resume modal form's inputs
+    $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID)[0].reset();
+    clearData();
+    // hide error messages
+    $("." + "error").each(function() {
+        $(this).addClass(HIDE_ELEMENT_CLASS);
+    });
+  });
+
+  // hide default option from the list
+  $(document).ready(function() {
+    $("#" + SEND_RESUME_FORM_SELECT_DEFAULT_OPTION_ID)
+    .toggleClass(HIDE_ELEMENT_CLASS);
+  });
+
+  $("#" + SEND_RESUME_ATTACH_BUTTON_ID)
+  .on("change", updateResumeChange);
+
+  function updateResumeChange() {
+    clearData();
+    var attach = $("#" + "modal-window-send-resume-attach-button-real")[0];
+    var file = getFile();
+    if (file == null) return;
+    $("." + SEND_RESUME_ATTACH_FILE_NAME_CLASS).text(file.name);
+    truncateFileName(file.name);
+    if (validFileType(file)) {
+      attach.setCustomValidity("");
+    } else {
+      attach.setCustomValidity(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1);
+    }
+  };
+
+  function clearData() {
+    $("." + SEND_RESUME_ATTACH_ERROR_CLASS).text("");
+    $("." + SEND_RESUME_ATTACH_FILE_NAME_CLASS).text("");
+  };
+
+  function validFileType(file) {
+    var fileTypes = [
+      "application/msword",
+      "application/pdf"
+    ];
+    return fileTypes.includes(file.type);
+  };
+
+  function truncateFileName(fileName) {
+    var el = $("." + SEND_RESUME_ATTACH_FILE_NAME_CLASS)[0];
+    var cont = $("." + SEND_RESUME_ATTACH_BUTTON_LABEL_WRAPPER_CLASS)[0];
+    var b = $("." + SEND_RESUME_ATTACH_BUTTON_WRAPPER_CLASS)[0];
+    el.textContent = fileName;
+
+    var originalText = fileName;
+    var textLength = originalText.length;
+    var part1 = originalText.substring(0, Math.floor(textLength / 2));
+    var part2 = originalText.substring(Math.floor(textLength / 2));
+    var trimFlag = true;
+    if ((cont.clientWidth - b.clientWidth) > 0) { /* prevent infinite loop */
+      while (el.clientWidth > (cont.clientWidth - b.clientWidth)) {
+        if (trimFlag) {
+          part1 = part1.substring(0, part1.length - 1);
+        } else {
+          part2 = part2.substring(1);
+        }
+        el.textContent = part1 + "..." + part2;
+        trimFlag = !trimFlag;
+        if (part1.length == 1 || part2.length == 1) break; /* prevent infinite loop */
+      }
+    } else {
+      el.textContent = originalText;
+    }
+  };
+
+  function getFile() {
+    return $("#" + SEND_RESUME_ATTACH_BUTTON_ID)[0].files[0];
+  }
+
+  $(window).resize(function(event) {
+    var file = getFile();
+    if (file) {
+      truncateFileName(file.name);
+    }
+  });
+
+  function isValidFormElements() {
+    var name = $("." + "modal-window-send-resume-vacancy-form-text-input")[0];
+    var nameError = $("." + "modal-window-send-resume-vacancy-form-text-input-error")[0];
+    var tel = $("." + "modal-window-send-resume-vacancy-form-tel-input")[0];
+    var telError = $("." + "modal-window-send-resume-vacancy-form-tel-input-error")[0];
+    var vacancy = $("." + "modal-window-send-resume-vacancy-form-list-select")[0];
+    var vacancyError = $("." + "modal-window-send-resume-vacancy-form-list-select-error")[0];
+    var attach = $("#" + "modal-window-send-resume-attach-button-real")[0];
+    var attachError = $("." + "modal-window-send-resume-attach-button-error")[0];
+    var checkbox = $("." + "modal-window-send-resume-agreement-checkbox-real")[0];
+
+    if (name.validity.valueMissing) {
+      name.focus();
+      if (nameError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        nameError.classList.toggle(HIDE_ELEMENT_CLASS);
+        nameError.classList.toggle("error");
+      }
+      return false;
+    }
+    if (tel.validity.valueMissing) {
+      tel.focus();
+      if (telError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        telError.classList.toggle(HIDE_ELEMENT_CLASS);
+        telError.classList.toggle("error");
+      }
+      return false;
+    } else if (tel.validity.customError) {
+      tel.focus();
+      if (telError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        telError.classList.toggle(HIDE_ELEMENT_CLASS);
+        telError.classList.toggle("error");
+      }
+      return false;
+    }
+    if (vacancy.validity.customError) {
+      vacancy.focus();
+      if (vacancyError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        vacancyError.classList.toggle(HIDE_ELEMENT_CLASS);
+        vacancyError.classList.toggle("error");
+      }
+      return false;
+    }
+    if (attach.validity.valueMissing) {
+      $("." + SEND_RESUME_ATTACH_ERROR_CLASS)
+        .text(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_2);
+      attach.focus();
+      if (attachError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        attachError.classList.toggle(HIDE_ELEMENT_CLASS);
+        attachError.classList.toggle("error");
+      }
+      return false;
+    } else if (attach.validity.customError) {
+      $("." + SEND_RESUME_ATTACH_ERROR_CLASS)
+        .text(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1);
+      attach.focus();
+      if (attachError.classList.contains(HIDE_ELEMENT_CLASS)) {
+        attachError.classList.toggle(HIDE_ELEMENT_CLASS);
+        attachError.classList.toggle("error");
+      }
+      return false;
+    }
+    if (checkbox.validity.valueMissing) {
+      checkbox.focus();
+      return false;
+    }
+
+    return true;
+  }
+
+  $("." + "modal-window-send-resume-vacancy-form-text-input").on("input", function(event) {
+    var nameError = $("." + "modal-window-send-resume-vacancy-form-text-input-error")[0];
+    if (!nameError.classList.contains(HIDE_ELEMENT_CLASS)) {
+      nameError.classList.toggle(HIDE_ELEMENT_CLASS);
+      nameError.classList.toggle("error");
+    }
+  });
+
+  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("shown.bs.modal", function(event) {
+    var telInput = $("." + "modal-window-send-resume-vacancy-form-tel-input");
+    var telError = $("." + "modal-window-send-resume-vacancy-form-tel-input-error")[0];
+    var vacancy = $("." + "modal-window-send-resume-vacancy-form-list-select");
+    var vacancyError = $("." + "modal-window-send-resume-vacancy-form-list-select-error")[0];
+
+    var pattern = new RegExp("\\+7 \\([0-9]{3}\\) [0-9]{3} - [0-9]{2} - [0-9]{2}");
+    telInput.on("blur", function(event) {
+      if (!pattern.test(telInput[0].value)) {
+        telInput[0].setCustomValidity("Заполните это поле");
+      } else {
+        telInput[0].setCustomValidity("");
+      }
+    });
+    var im = new Inputmask({
+      "mask": "+7 (999) 999 - 99 - 99",
+      "oncomplete": function() {
+        if (!telError.classList.contains(HIDE_ELEMENT_CLASS)) {
+          telError.classList.toggle(HIDE_ELEMENT_CLASS);
+          telError.classList.toggle("error");
+        }
+      }
+    });
+    im.mask(telInput);
+
+    vacancy[0].setCustomValidity("Выберите вакансию");
+    vacancy.on("change", function(event) {
+      var option = vacancy.find(":selected");
+      if (option[0].value != "default") {
+        vacancy[0].setCustomValidity("");
+        if (!vacancyError.classList.contains(HIDE_ELEMENT_CLASS)) {
+          vacancyError.classList.toggle(HIDE_ELEMENT_CLASS);
+          vacancyError.classList.toggle("error");
+        }
+      } else {
+        vacancy[0].setCustomValidity("Выберите вакансию");
+      }
+    });
+  });
+
+
+
 /* modal window send resume end */
 /* modal window success */
   var MODAL_WINDOW_BUTTON_ID = "modal-success-button";
   var LOCATION = "https://dmitrii-s-frontend.github.io/test-task-2/"; // TODO: add corect location here!
+
   $("#" + MODAL_WINDOW_BUTTON_ID).on("click", function(event) {
     window.location.href = LOCATION;
   });

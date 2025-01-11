@@ -36,6 +36,33 @@
   top: 50%;
   z-index: 0;
 }
+.vacancies-page-modal-header {
+  justify-content: flex-end;
+  padding: 0px 10px;
+  background: #1B1B1B;
+  border-radius: 0;
+  height: 44px;
+  flex-direction: row;
+}
+.vacancies-page-modal-content {
+  border-radius: 0;
+  background-color: #262626;
+  border: 0;
+}
+.modal .vacancies-page-close {
+  position: static;
+  width: 44px;
+  height: 44px;
+  opacity: 1;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 11px 0;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 21px;
+  text-shadow: none;
+}
 
 /* common end */
 /* send resume section */
@@ -504,34 +531,150 @@
   width: 260px;
 }
 /* motivation section end */
-/* modal window success */
-.vacancies-page-modal-header {
-  justify-content: flex-end;
-  padding: 0px 10px;
-  background: #1B1B1B;
-  border-radius: 0;
-  height: 44px;
-  flex-direction: row;
+/* modal window send resume */
+.modal-window-send-resume-body {
+  padding: 45px 20px 0;
 }
-.vacancies-page-modal-content {
-  border-radius: 0;
+.modal-window-send-resume-title {
+  margin-bottom: 37px;
+}
+.modal-window-send-resume-vacancy-form-input {
   background-color: #262626;
+  border: none;
+  color: #FFFFFF;
+  line-height: 22px;
+  height: 52px;
+}
+.modal-window-send-resume-vacancy-form-input::placeholder{
+  color: #999999;
+}
+.modal-window-send-resume-vacancy-form-text-input {
+  padding: 15px 10px;
+  width: 100%;
+}
+.modal-window-send-resume-vacancy-form-tel-input {
+  padding: 15px 10px;
+  width: 100%;
+}
+.modal-window-send-resume-vacancy-form-list-select {
+  padding: 15px 10px;
+  width: calc(100% - 10px); /* needed to move arrow left */
+}
+.modal-window-send-resume-vacancy-form-list-select-icon {
+  appearance: none;
+  background-image: url('../img/svg/select-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.modal-window-send-resume-vacancy-form-list-input-title {
+  padding-left: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.modal-window-send-resume-attach-text-title {
+  padding-left: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 15px;
+}
+.modal-window-send-resume-attach-text-wrapper {
+  font-size: 10px;
+  line-height: 15px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+.modal-window-send-resume-visually-hidden {
+  /* visually-hidden technique: https://www.a11yproject.com/posts/how-to-hide-content/ */
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.modal-window-send-resume-attach-button-label-wrapper {
+  margin: 0 0 27px;
+}
+.modal-window-send-resume-attach-button-label {
+  margin: 0;
+  position: relative;
+}
+.modal-window-send-resume-attach-button-wrapper {
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+.modal-window-send-resume-attach-button {
+  display: inline-block;
+  width: 184px;
+}
+.modal-window-send-resume-attach-button-file-name-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+}
+.modal-window-send-resume-attach-button-file-name {
+  vertical-align: middle;
+}
+.modal-window-send-resume-error {
+  color: #DD3037;
+  font-size: 14px;
+  line-height: 20px;
+}
+.modal-window-send-resume-attach-button-error {}
+.modal-window-send-resume-vacancy-form-text-input-error {}
+.modal-window-send-resume-vacancy-form-tel-input-error {}
+.modal-window-send-resume-vacancy-form-list-select-error {}
+.modal-window-send-resume-agreement-text-wrapper {
+  padding-top: 8px;
+  font-size: 10px;
+  line-height: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.modal-window-send-resume-agreement-wrapper {
+  gap: 5px;
+}
+.modal-window-send-resume-agreement-checkbox-real {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.modal-window-send-resume-agreement-checkbox-real:checked + span:before {
+  content: url('../img/svg/checkbox-select.svg');
+  position: absolute;
+  top: -11px;
+}
+.modal-window-send-resume-agreement-checkbox-fake {
+  width: 14px;
+  height: 14px;
+  background-color: rgba(217, 217, 217, 0.2);
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  position: relative;
+}
+.modal-window-send-resume-footer {
+  padding: 45px 0 35px;
   border: 0;
 }
-.modal .vacancies-page-close {
-  position: static;
-  width: 44px;
-  height: 44px;
-  opacity: 1;
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 11px 0;
-  font-size: 44px;
-  font-weight: 400;
-  line-height: 21px;
-  text-shadow: none;
+.modal-window-send-resume-footer-button {
+  width: 200px;
 }
+.modal-window-send-resume-line {
+  margin: 0;
+  border-top: 3px solid #999999;
+}
+.modal-window-send-resume-fieldset {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* modal window send resume end */
+/* modal window success */
 .modal-window-success-body {
   padding: 45px 0 55px;
   text-align: center;
@@ -567,68 +710,6 @@
   width: 156px;
 }
 /* modal window success end */
-/* modal window send resume */
-.modal-window-send-resume-body {
-  padding: 45px 20px 0;
-}
-.modal-window-send-resume-title {
-  margin-bottom: 37px;
-}
-.modal-window-send-resume-vacancy-form-text-input {
-  padding: 10px;
-  width: 100%;
-}
-.modal-window-send-resume-vacancy-form-tel-input {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-.modal-window-send-resume-vacancy-form-list-input {
-  padding: 15px 10px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-.modal-window-send-resume-vacancy-form-list-input-title {
-  padding-left: 10px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-}
-.modal-window-send-resume-attach-text-title {
-  padding-left: 10px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  margin-bottom: 15px;
-}
-.modal-window-send-resume-attach-text-wrapper {
-  font-size: 10px;
-  line-height: 15px;
-  margin-bottom: 15px;
-  padding-left: 10px;
-}
-.modal-window-send-resume-attach-button {
-/*  width: 184px;*/
-  margin: 0 0 35px;
-}
-.modal-window-send-resume-agreement-text-wrapper {
-  font-size: 10px;
-  line-height: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.modal-window-send-resume-agreement-wrapper {
-  gap: 5px;
-}
-.modal-window-send-resume-footer {
-  padding: 45px 0 35px;
-  border: 0;
-}
-.modal-window-send-resume-footer-button {
-  width: 200px;
-}
-/* modal window send resume end */
                            /* MOBILE VERSION */
 /* Extra small */
 @media (max-width: 575px) {

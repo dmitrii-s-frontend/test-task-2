@@ -850,31 +850,38 @@
 <div class="modal" id="modal-window-send-resume">
   <div class="modal-dialog">
     <div class="modal-content vacancies-page-modal-content">
-
       <!-- Modal Header -->
       <div class="modal-header vacancies-page-modal-header">
         <button type="button" class="close vacancies-page-close" data-dismiss="modal">&times;</button>
       </div>
-
       <!-- Modal body -->
-      <form id="modal-window-send-resume-vacancy-form" action="#" method="post" enctype="multipart/form-data">
+      <form id="modal-window-send-resume-vacancy-form" action="#" method="post" enctype="multipart/form-data" novalidate>
         <div class="modal-body modal-window-send-resume-body">
           <h2 class="modal-title vacancies-page-header modal-window-send-resume-title">
             заполните анкету
           </h2>
-          <input type="text" name="name" class="modal-window-send-resume-vacancy-form-text-input" placeholder="Ф.И.О" required>
-          <input type="tel" name="phone" class="modal-window-send-resume-vacancy-form-tel-input" placeholder="Телефон" required>
-          <p class="modal-window-send-resume-vacancy-form-list-input-title">
-            Отклик на вакансию
-          </p>
-          <input list="vacancies" name="vacancy"  class="modal-window-send-resume-vacancy-form-list-input" placeholder="Выберите вакансию" required>
-          <datalist id="vacancies">
-            <option value="Прораб">
-            <option value="Специалист службы снабжения">
-            <option value="Логист">
-            <option value="Проектировщик">
-          </datalist>
-
+          <fieldset class="modal-window-send-resume-fieldset">
+            <input type="text" name="name" class="modal-window-send-resume-vacancy-form-text-input modal-window-send-resume-vacancy-form-input" placeholder="Ф.И.О" required>
+            <hr class="modal-window-send-resume-line">
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-text-input-error">*Заполните это поле</span>
+            <input type="tel" name="phone" class="modal-window-send-resume-vacancy-form-tel-input modal-window-send-resume-vacancy-form-input" placeholder="Телефон" required>
+            <hr class="modal-window-send-resume-line">
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-tel-input-error">*Заполните это поле</span>
+          </fieldset>
+          <fieldset class="modal-window-send-resume-fieldset">
+            <p class="modal-window-send-resume-vacancy-form-list-input-title">
+              Отклик на вакансию
+            </p>
+            <select class="modal-window-send-resume-vacancy-form-input modal-window-send-resume-vacancy-form-list-select modal-window-send-resume-vacancy-form-list-select-icon" name="vacancy" required>
+              <option id="modal-window-send-resume-vacancy-form-default-option"selected value="default">Выберите вакансию</option>
+              <option value="vacancy1">Прораб</option>
+              <option value="vacancy2">Специалист снабжения</option>
+              <option value="vacancy3">Логист</option>
+              <option value="vacancy4">Проектировщик</option>
+            </select>
+            <hr class="modal-window-send-resume-line">
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-list-select-error">*Выберите вакансию</span>
+          </fieldset>
           <p class="modal-window-send-resume-attach-text-title">
             Ваше резюме
           </p>
@@ -886,9 +893,24 @@
               Приложите и отправьте его нам.
             </p>
           </div>
-          <input type="file" name="file" class="modal-window-send-resume-attach-button" required>
+          <div class="modal-window-send-resume-attach-button-label-wrapper">
+            <label for="modal-window-send-resume-attach-button-real" class="modal-window-send-resume-attach-button-label">
+              <div class="modal-window-send-resume-attach-button-wrapper">
+                <span class="btn btn--green vacancies-page-button vacancies-page-button_fix_button-width modal-window-send-resume-attach-button">загрузить файл</span>
+              </div>
+              <div class="modal-window-send-resume-attach-button-file-name-wrapper">
+                <span class="modal-window-send-resume-attach-button-file-name"></span>
+              </div>
+            </label>
+            <div class="d-none modal-window-send-resume-error modal-window-send-resume-attach-button-error"></div>
+            <input id="modal-window-send-resume-attach-button-real" type="file" name="file" class="modal-window-send-resume-visually-hidden" accept=".pdf,.doc" required>
+          </div>
+
           <div class="d-flex flex-row align-items-start modal-window-send-resume-agreement-wrapper">
-            <input type="checkbox" name="agreement" required>
+            <label>
+              <input type="checkbox" class="modal-window-send-resume-agreement-checkbox-real" name="agreement" checked required>
+              <span class="modal-window-send-resume-agreement-checkbox-fake"></span>
+            </label>
             <div class="modal-window-send-resume-agreement-text-wrapper">
               <p>
                 Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на обработку персональных данных физическим лицом. Я осознаю, что даю Согласие на обработку персональных данных для использования предоставляемых возможностей Веб-сервиса.
@@ -899,7 +921,6 @@
             </div>
           </div>
         </div>
-
         <!-- Modal footer -->
         <div class="modal-footer modal-window-send-resume-footer">
           <button type="submit" class="btn btn--red vacancies-page-button modal-window-send-resume-footer-button">
@@ -914,12 +935,10 @@
 <div class="modal" id="modal-window-success">
   <div class="modal-dialog">
     <div class="modal-content vacancies-page-modal-content">
-
       <!-- Modal Header -->
       <div class="modal-header vacancies-page-modal-header">
         <button type="button" class="close vacancies-page-close" data-dismiss="modal">&times;</button>
       </div>
-
       <!-- Modal body -->
       <div class="modal-body modal-window-success-body">
         <h2 class="modal-title vacancies-page-header modal-window-success-title">
@@ -948,14 +967,12 @@
           </div>
         </div>
       </div>
-
       <!-- Modal footer -->
       <div class="modal-footer modal-window-success-footer">
         <button id="modal-success-button" type="button" class="btn btn--red vacancies-page-button modal-window-success-footer-button">
           на главную
         </button>
       </div>
-
     </div>
   </div>
 </div>
@@ -1113,6 +1130,7 @@
   <script src="bitrix/cache/js/s1/pplk/template_c8b67094a336cbdf56abd41461d35407/template_c8b67094a336cbdf56abd41461d35407_v1_updated.js?1714986365796453"></script>
   <script src="vendor/npm/swiper%4011/swiper-bundle.min.js"></script>
   <script src="vendor/ui/1.13.2/jquery-ui.js"></script>
+  <!-- <script src="vendor/inputmask/jquery.inputmask.js"></script> -->
   <!-- BX-->
   <script type="text/javascript">
     if (!window.BX) window.BX = {};
