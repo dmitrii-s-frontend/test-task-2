@@ -27,7 +27,12 @@
       toggleDescriptionVisibility(toggleId);
     });
   };
-
+  window.addEventListener("load", function(event) {
+    var buttons = document.getElementsByClassName("vacancies-page-button");
+    for(var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = false;
+    }
+  });
 /* common end */
 /* departments section */
   var VACANCIES_CLASS = "js-departments-section-vacancies";
@@ -310,6 +315,7 @@
         telInput[0].setCustomValidity(SEND_RESUME_ERROR_MESSAGE_3);
       } else {
         telInput[0].setCustomValidity("");
+        // hideError(telError);
       }
     });
     var im = new Inputmask({
