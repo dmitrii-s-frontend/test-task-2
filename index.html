@@ -861,26 +861,28 @@
             заполните анкету
           </h2>
           <fieldset class="modal-window-send-resume-fieldset">
-            <input type="text" name="name" class="modal-window-send-resume-vacancy-form-text-input modal-window-send-resume-vacancy-form-input" placeholder="Ф.И.О" required>
+            <input type="text" name="name" class="modal-window-send-resume-vacancy-form-input modal-window-send-resume-vacancy-form-text-input " placeholder="Ф.И.О" required>
             <hr class="modal-window-send-resume-line">
-            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-text-input-error">*Заполните это поле</span>
-            <input type="tel" name="phone" class="modal-window-send-resume-vacancy-form-tel-input modal-window-send-resume-vacancy-form-input" placeholder="Телефон" required>
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-text-input-error"></span>
+            <input type="tel" name="phone" class="modal-window-send-resume-vacancy-form-input modal-window-send-resume-vacancy-form-tel-input" placeholder="Телефон" required>
             <hr class="modal-window-send-resume-line">
-            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-tel-input-error">*Заполните это поле</span>
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-tel-input-error"></span>
           </fieldset>
           <fieldset class="modal-window-send-resume-fieldset">
             <p class="modal-window-send-resume-vacancy-form-list-input-title">
               Отклик на вакансию
             </p>
-            <select class="modal-window-send-resume-vacancy-form-input modal-window-send-resume-vacancy-form-list-select modal-window-send-resume-vacancy-form-list-select-icon" name="vacancy" required>
-              <option id="modal-window-send-resume-vacancy-form-default-option"selected value="default">Выберите вакансию</option>
-              <option value="vacancy1">Прораб</option>
-              <option value="vacancy2">Специалист снабжения</option>
-              <option value="vacancy3">Логист</option>
-              <option value="vacancy4">Проектировщик</option>
-            </select>
+            <div class="modal-window-send-resume-vacancy-form-input modal-window-custom-select-wrapper">
+              <select name="vacancy" class="modal-window-send-resume-visually-hidden modal-window-send-resume-vacancy-form-list-select" required>
+                <option id="modal-window-send-resume-vacancy-form-default-option"selected value="default">Выберите вакансию</option>
+                <option value="vacancy1">Прораб</option>
+                <option value="vacancy2">Специалист снабжения</option>
+                <option value="vacancy3">Логист</option>
+                <option value="vacancy4">Проектировщик</option>
+              </select>
+            </div>
             <hr class="modal-window-send-resume-line">
-            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-list-select-error">*Выберите вакансию</span>
+            <span class="d-none modal-window-send-resume-error modal-window-send-resume-vacancy-form-list-select-error"></span>
           </fieldset>
           <p class="modal-window-send-resume-attach-text-title">
             Ваше резюме
@@ -898,20 +900,20 @@
               <div class="modal-window-send-resume-attach-button-wrapper">
                 <span class="btn btn--green vacancies-page-button vacancies-page-button_fix_button-width modal-window-send-resume-attach-button">загрузить файл</span>
               </div>
-              <div class="modal-window-send-resume-attach-button-file-name-wrapper">
+              <div class="text-nowrap modal-window-send-resume-attach-button-file-name-wrapper">
                 <span class="modal-window-send-resume-attach-button-file-name"></span>
               </div>
             </label>
             <div class="d-none modal-window-send-resume-error modal-window-send-resume-attach-button-error"></div>
-            <input id="modal-window-send-resume-attach-button-real" type="file" name="file" class="modal-window-send-resume-visually-hidden" accept=".pdf,.doc" required>
+            <input type="file" name="file" id="modal-window-send-resume-attach-button-real" class="modal-window-send-resume-visually-hidden" accept=".pdf,.doc" required>
           </div>
 
           <div class="d-flex flex-row align-items-start modal-window-send-resume-agreement-wrapper">
             <label>
-              <input type="checkbox" class="modal-window-send-resume-agreement-checkbox-real" name="agreement" checked required>
+              <input type="checkbox" name="agreement" class="modal-window-send-resume-agreement-checkbox-real modal-window-send-resume-visually-hidden" checked required>
               <span class="modal-window-send-resume-agreement-checkbox-fake"></span>
             </label>
-            <div class="modal-window-send-resume-agreement-text-wrapper">
+            <div class="d-flex flex-column modal-window-send-resume-agreement-text-wrapper">
               <p>
                 Я прочитал(а), ознакомился(лась) и согласен(на) с Политикой конфиденциальности, Согласием на обработку персональных данных физическим лицом. Я осознаю, что даю Согласие на обработку персональных данных для использования предоставляемых возможностей Веб-сервиса.
               </p>
@@ -940,12 +942,12 @@
         <button type="button" class="close vacancies-page-close" data-dismiss="modal">&times;</button>
       </div>
       <!-- Modal body -->
-      <div class="modal-body modal-window-success-body">
+      <div class="modal-body text-center modal-window-success-body">
         <h2 class="modal-title vacancies-page-header modal-window-success-title">
           анкета отправлена
         </h2>
         <span class="modal-window-success-body-icon"></span>
-        <div class="modal-window-success-text-wrapper">
+        <div class="d-flex flex-column modal-window-success-text-wrapper">
           <div>
             <p>
               Благодарим
@@ -976,154 +978,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-  <div class="modal fade modal-sign-up" id="modal-header" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            &times;
-          </span>
-        </button>
-        <div class="modal-header">
-        </div>
-        <div class="modal-body">
-          <h5 class="modal-title" id="exampleModalCenterTitle">
-            Закажите звонок
-          </h5>
-          <h6 class="modal-subtitle">
-            Мы перезвоним в течение 15 минут и проконсультируем по строительству
-          </h6>
-          <style type="text/css">
-            .modal-sign-up h4,
-            .modal-sign-up small {
-                display: none;
-            }
-            .modal-sign-up .col-xl-7 {
-                max-width: 100%;
-                flex: 100%;
-            }
-          </style>
-          <form action="" method="POST" class="form_post book-form-box">
-            <div class="d-none value">
-              <input type="hidden" name="admin_mail" value="">
-              <input type="hidden" name="from_mail" value="">
-              <input type="hidden" name="title" value="Заказать звонок | Хэдер">
-              <input type="hidden" name="form_class" value="form_header">
-              <input type="hidden" name="feed_form" value="53,">
-              <input type="hidden" name="FORM_URL" value="https://pplk.ru/">
-              <input type="hidden" name="utm_source" value="yandex_poisk_spb_bani_gi">
-              <input type="hidden" name="utm_medium" value="cpc">
-              <input type="hidden" name="utm_term" value="план бани 6х6">
-              <input type="hidden" name="utm_campaign" value="Yx_poisk_14_gi_spb_bani_Proekti_razmer_etaz_1">
-              <input type="hidden" name="utm_content" value="yandex_poisk_glavnii_bani_spb">
-              <input type="hidden" name="block" value="premium">
-              <input type="hidden" name="position" value="1">
-              <input type="hidden" name="source" value="none">
-              <input type="hidden" name="name" value="14 Поиск Проекты размер этаж">
-              <input type="hidden" name="gbid" value="5314749454">
-              <input type="hidden" name="ad" value="16120358657">
-              <input type="hidden" name="region_name" value="Санкт-Петербург">
-              <input type="hidden" name="type" value="search">
-              <input type="hidden" name="gender" value="">
-              <input type="hidden" name="age" value="">
-              <input type="hidden" name="utm_geo" value="petersburg">
-              <input type="hidden" name="device_type" value="">
-              <input type="hidden" name="search_phrase" value="">
-              <input type="hidden" name="campaign_id" value="">
-              <input type="hidden" name="campaign_name" value="">
-              <input type="hidden" name="geo" value="">
-            </div>
-            <div class="row  justify-content-start">
-              <div class="col-lg-12 input-container form__input-container">
-                <input name="profile_phone" type="tel" value="" class="form__input" placeholder="Ваш телефон" required="">
-              </div>
-              <div class="text-left col-xl-7 col-lg-7 mx-auto">
-                <button type="submit" class="btn btn--red col-12">
-                  Заказать звонок
-                </button>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12">
-                <div class="note-terms contacts_note-terms mt-2">
-                  <div class="form__policy form__policy--promo">
-                    <label>
-                      <input type="checkbox" class="checkbox__form" checked="" autocomplete="off" required="">
-                      <span class="checkbox__form-label">
-                        &nbsp;&nbsp;&nbsp;
-                      </span>
-                      <span class="form__policy-text form__policy--promo">
-                        Нажимая на кнопку, я соглашаюсь с условиями <br>
-                        <a href="privacy-policy/index.php/index.htm" class="form__policy-sub-text" target="_blank">
-                          политики конфиденциальности.
-                        </a>
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade modal-success" id="modal-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            &times;
-          </span>
-        </button>
-        <div class="modal-header">
-          <svg class="modal__icon" widht="98" height="98">
-            <use xlink:href="img/symbol-defs.svg#icon-thanks-check"></use>
-          </svg>
-          <h5 class="modal-title" id="exampleModalCenterTitle">
-            Спасибо!
-          </h5>
-        </div>
-        <div class="modal-body">
-          <p> Мы свяжемся с вами в течение 15 минут,<br>
-            а пока посмотрите наши социальные сети.<br>
-          </p>
-          <ul class="contacts__social">
-            <li class="contacts__social-item youtube">
-              <a href="https://www.youtube.com/@pplk_ru" target="_blank">
-                <svg class="social__icon" width="47" height="35">
-                  <use xlink:href="img/symbol-defs.svg#icon-youtube"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="contacts__social-item vk">
-              <a href="https://vk.com/doma_i_bani_iz_brusa" target="_blank">
-                <svg class="social__icon" width="35" height="35">
-                  <use xlink:href="img/symbol-defs.svg#icon-vk"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="contacts__social-item telegram">
-              <a href="https://t.me/plkombinat" target="_blank">
-                <svg class="social__icon" width="35" height="35">
-                  <use xlink:href="img/symbol-defs.svg#icon-telegram"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- MODAL WINDOWS END-->
 
   <script src="bitrix/js/main/jquery/jquery-3.6.0.min.js?171414288589501"></script>

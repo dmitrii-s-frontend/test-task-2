@@ -534,6 +534,7 @@
 /* modal window send resume */
 .modal-window-send-resume-body {
   padding: 45px 20px 0;
+  line-height: 0px;
 }
 .modal-window-send-resume-title {
   margin-bottom: 37px;
@@ -542,35 +543,62 @@
   background-color: #262626;
   border: none;
   color: #FFFFFF;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
   line-height: 22px;
+
   height: 52px;
+  width: 100%;
+  padding: 15px 10px;
 }
 .modal-window-send-resume-vacancy-form-input::placeholder{
   color: #999999;
 }
-.modal-window-send-resume-vacancy-form-text-input {
-  padding: 15px 10px;
-  width: 100%;
-}
-.modal-window-send-resume-vacancy-form-tel-input {
-  padding: 15px 10px;
-  width: 100%;
-}
-.modal-window-send-resume-vacancy-form-list-select {
-  padding: 15px 10px;
-  width: calc(100% - 10px); /* needed to move arrow left */
-}
-.modal-window-send-resume-vacancy-form-list-select-icon {
-  appearance: none;
-  background-image: url('../img/svg/select-arrow.svg');
-  background-repeat: no-repeat;
-  background-position: center right;
-}
+.modal-window-send-resume-vacancy-form-text-input {}
+.modal-window-send-resume-vacancy-form-tel-input {}
+.modal-window-send-resume-vacancy-form-list-select {}
 .modal-window-send-resume-vacancy-form-list-input-title {
   padding-left: 10px;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
+}
+.modal-window-custom-select-wrapper {
+  position: relative;
+}
+.modal-window-custom-select-hide {
+  display: none;
+}
+.modal-window-custom-select-selected {
+  background-color: #262626;
+}
+.modal-window-custom-select-selected::after {
+  content: url('../img/svg/select-arrow.svg');
+  position: absolute;
+  right: 10px;
+  top: 33%;
+  width: 16px;
+  height: 16px;
+}
+.modal-window-custom-select-selected.modal-window-custom-select-active::after {
+  transform: rotate(180deg);
+}
+.modal-window-custom-select-items {
+  position: absolute;
+  background-color: #262626;
+  border: 1px solid #999999;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.modal-window-custom-select-option {
+  padding: 10px 10px;
+}
+.modal-window-custom-select-option:hover {
+  background-color: #3399ff;
 }
 .modal-window-send-resume-attach-text-title {
   padding-left: 10px;
@@ -596,7 +624,7 @@
   width: 1px;
 }
 .modal-window-send-resume-attach-button-label-wrapper {
-  margin: 0 0 27px;
+  margin: 0 0 35px;
 }
 .modal-window-send-resume-attach-button-label {
   margin: 0;
@@ -607,17 +635,17 @@
   padding: 0 5px 0 0;
 }
 .modal-window-send-resume-attach-button {
-  display: inline-block;
   width: 184px;
 }
 .modal-window-send-resume-attach-button-file-name-wrapper {
   display: inline-block;
   overflow: hidden;
-  white-space: nowrap;
   position: absolute;
+  padding: 11px 0;
 }
 .modal-window-send-resume-attach-button-file-name {
-  vertical-align: middle;
+  font-size: 12px;
+  line-height: 18px;
 }
 .modal-window-send-resume-error {
   color: #DD3037;
@@ -629,25 +657,17 @@
 .modal-window-send-resume-vacancy-form-tel-input-error {}
 .modal-window-send-resume-vacancy-form-list-select-error {}
 .modal-window-send-resume-agreement-text-wrapper {
-  padding-top: 8px;
   font-size: 10px;
   line-height: 15px;
-  display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 .modal-window-send-resume-agreement-wrapper {
   gap: 5px;
 }
-.modal-window-send-resume-agreement-checkbox-real {
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
+.modal-window-send-resume-agreement-checkbox-real {}
 .modal-window-send-resume-agreement-checkbox-real:checked + span:before {
   content: url('../img/svg/checkbox-select.svg');
   position: absolute;
-  top: -11px;
 }
 .modal-window-send-resume-agreement-checkbox-fake {
   width: 14px;
@@ -658,7 +678,7 @@
   position: relative;
 }
 .modal-window-send-resume-footer {
-  padding: 45px 0 35px;
+  padding: 35px 0 45px;
   border: 0;
 }
 .modal-window-send-resume-footer-button {
@@ -672,12 +692,10 @@
   padding: 0;
   margin-bottom: 20px;
 }
-
 /* modal window send resume end */
 /* modal window success */
 .modal-window-success-body {
   padding: 45px 0 55px;
-  text-align: center;
 }
 .modal-window-success-title {
   margin-bottom: 74px;
@@ -692,14 +710,10 @@
   width: 240px;
   height: 125px;
   margin: 0 auto;
-
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
-
-  display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 .modal-window-success-footer {

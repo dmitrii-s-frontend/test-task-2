@@ -270,15 +270,77 @@
   var MODAL_WINDOW_SEND_RESUME_ID = "modal-window-send-resume";
   var MODAL_WINDOW_SUCCESS_ID = "modal-window-success";
   var SEND_RESUME_FORM_SELECT_DEFAULT_OPTION_ID = "modal-window-send-resume-vacancy-form-default-option";
-
   var SEND_RESUME_ATTACH_BUTTON_ID = "modal-window-send-resume-attach-button-real";
   var SEND_RESUME_ATTACH_FILE_NAME_CLASS = "modal-window-send-resume-attach-button-file-name";
   var SEND_RESUME_ATTACH_BUTTON_WRAPPER_CLASS = "modal-window-send-resume-attach-button-wrapper";
   var SEND_RESUME_ATTACH_BUTTON_LABEL_WRAPPER_CLASS = "modal-window-send-resume-attach-button-label-wrapper";
   var SEND_RESUME_ATTACH_ERROR_CLASS = "modal-window-send-resume-attach-button-error";
-  var SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1 = "*Прикрепите резюме в формате .pdf или .doc";
-  var SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_2 = "*Прикрепите резюме";
+  var SEND_RESUME_NAME_CLASS = "modal-window-send-resume-vacancy-form-text-input";
+  var SEND_RESUME_NAME_ERROR_CLASS = "modal-window-send-resume-vacancy-form-text-input-error";
+  var SEND_RESUME_TEL_CLASS = "modal-window-send-resume-vacancy-form-tel-input";
+  var SEND_RESUME_TEL_ERROR_CLASS = "modal-window-send-resume-vacancy-form-tel-input-error";
+  var SEND_RESUME_TEL_PATTERN = "\\+7 \\([0-9]{3}\\) [0-9]{3} - [0-9]{2} - [0-9]{2}";
+  var SEND_RESUME_TEL_MASK = "+7 (999) 999 - 99 - 99";
+  var SEND_RESUME_SELECT_CLASS = "modal-window-send-resume-vacancy-form-list-select";
+  var SEND_RESUME_SELECT_ERROR_CLASS = "modal-window-send-resume-vacancy-form-list-select-error";
+  var SEND_RESUME_SELECT_DEFAULT_OPTION = "default";
+  var CUSTOM_SELECT_WRAPPER_CLASS = "modal-window-custom-select-wrapper";
+  var CUSTOM_SELECT_SELECTED_ID = "selected-div";
+  var CUSTOM_SELECT_SELECTED_CLASS = "modal-window-custom-select-selected";
+  var CUSTOM_SELECT_HIDE = "modal-window-custom-select-hide";
+  var CUSTOM_SELECT_ACTIVE = "modal-window-custom-select-active";
+  var CUSTOM_SELECT_ITEMS = "modal-window-custom-select-items";
+  var CUSTOM_SELECT_OPTION = "modal-window-custom-select-option";
+  var SEND_RESUME_CHECKBOX_CLASS = "modal-window-send-resume-agreement-checkbox-real";
+  var SEND_RESUME_ERROR_MESSAGE_1 = "*Прикрепите резюме в формате .pdf или .doc";
+  var SEND_RESUME_ERROR_MESSAGE_2 = "*Прикрепите резюме";
+  var SEND_RESUME_ERROR_MESSAGE_3 = "*Заполните это поле";
+  var SEND_RESUME_ERROR_MESSAGE_4 = "*Выберите вакансию";
+  var SEND_RESUME_ERROR_MARKER = "error";
 
+  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("shown.bs.modal", function(event) {
+    var telInput = $("." + SEND_RESUME_TEL_CLASS);
+    var telError = $("." + SEND_RESUME_TEL_ERROR_CLASS);
+    var vacancy = $("." + SEND_RESUME_SELECT_CLASS);
+    var vacancyError = $("." + SEND_RESUME_SELECT_ERROR_CLASS);
+
+    var pattern = new RegExp(SEND_RESUME_TEL_PATTERN);
+    telInput.on("blur", function(event) {
+      if (!pattern.test(telInput[0].value)) {
+        telInput[0].setCustomValidity(SEND_RESUME_ERROR_MESSAGE_3);
+      } else {
+        telInput[0].setCustomValidity("");
+      }
+    });
+    var im = new Inputmask({
+      "mask": SEND_RESUME_TEL_MASK,
+      "oncomplete": function() {
+        hideError(telError);
+      }
+    });
+    im.mask(telInput);
+
+    vacancy[0].setCustomValidity(SEND_RESUME_ERROR_MESSAGE_4);
+    vacancy.on("change", function(event) {
+      var option = vacancy.find(":selected");
+      if (option.val() != SEND_RESUME_SELECT_DEFAULT_OPTION) {
+        vacancy[0].setCustomValidity("");
+        hideError(vacancyError);
+      } else {
+        vacancy[0].setCustomValidity(SEND_RESUME_ERROR_MESSAGE_4);
+      }
+    });
+  });
+
+  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("hide.bs.modal", function(event) {
+    // clean send resume modal form's inputs
+    $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID)[0].reset();
+    clearData();
+    $("." + SEND_RESUME_ERROR_MARKER).each(function() {
+      hideError($(this));
+    });
+    clearCustomSelect();
+  });
 
   $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID).on("submit", function(event) {
     event.preventDefault();
@@ -291,34 +353,99 @@
     }
   });
 
-  // handle modal window using bootstrap modal function
-  function handleModal(modalId, modalOperation) {
-    $("#" + modalId).modal(modalOperation);
+  function createCustomSelect() {
+    var customSelect = document.getElementsByClassName(CUSTOM_SELECT_WRAPPER_CLASS)[0];
+    var select = document.getElementsByClassName(SEND_RESUME_SELECT_CLASS)[0];
+    // add selected option
+    var selOpt = document.createElement("DIV");
+    selOpt.setAttribute("id", CUSTOM_SELECT_SELECTED_ID);
+    selOpt.setAttribute("class", CUSTOM_SELECT_SELECTED_CLASS);
+    selOpt.innerText = select.options[select.selectedIndex].innerText;
+    selOpt.addEventListener("click", function(e) {
+      e.stopPropagation();
+      this.nextSibling.classList.toggle(CUSTOM_SELECT_HIDE);
+      this.classList.toggle(CUSTOM_SELECT_ACTIVE);
+    });
+    customSelect.appendChild(selOpt);
+    // add box with options
+    var box = document.createElement("DIV");
+    box.setAttribute("class", CUSTOM_SELECT_ITEMS + " " + CUSTOM_SELECT_HIDE);
+    for (var i = 1; i < select.options.length; i++) {
+      var opt = document.createElement("DIV");
+      opt.setAttribute("class", CUSTOM_SELECT_OPTION);
+      opt.innerText = select.options[i].innerText;
+      opt.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var selOpt = this.parentNode.previousSibling;
+        for (var j = 0; j < select.options.length; j++) {
+          if (select.options[j].innerText == this.innerText) {
+            // update hidden select and selected option element
+            select.selectedIndex = j;
+            select.dispatchEvent(new Event("change"));
+            selOpt.innerText = this.innerText;
+            break;
+          }
+        };
+        selOpt.click();
+      });
+      box.appendChild(opt);
+    }
+    customSelect.appendChild(box);
   };
 
+  function clearCustomSelect() {
+    var select = document.getElementsByClassName(SEND_RESUME_SELECT_CLASS)[0];
+    var selectedDiv = document.getElementById(CUSTOM_SELECT_SELECTED_ID);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == SEND_RESUME_SELECT_DEFAULT_OPTION) {
+        selectedDiv.innerText = select.options[i].innerText;
+        break;
+      }
+    };
+  };
 
-  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("hide.bs.modal", function(event) {
-    // clean send resume modal form's inputs
-    $("#" + MODAL_WINDOW_SEND_RESUME_FORM_ID)[0].reset();
-    clearData();
-    // hide error messages
-    $("." + "error").each(function() {
-        $(this).addClass(HIDE_ELEMENT_CLASS);
-    });
-  });
-
-  // hide default option from the list
   $(document).ready(function() {
+    // hide default option from the list
     $("#" + SEND_RESUME_FORM_SELECT_DEFAULT_OPTION_ID)
     .toggleClass(HIDE_ELEMENT_CLASS);
+
+    createCustomSelect();
+  });
+
+  $(document).click(function() {
+    // hide select's options if click outside the options box
+    var selectOptions = document.getElementsByClassName(CUSTOM_SELECT_ITEMS)[0];
+    var selectedOption = document.getElementsByClassName(CUSTOM_SELECT_SELECTED_CLASS)[0];
+    if (selectOptions && selectedOption
+      && selectedOption.classList.contains(CUSTOM_SELECT_ACTIVE)) {
+      selectOptions.classList.toggle(CUSTOM_SELECT_HIDE);
+      selectedOption.classList.toggle(CUSTOM_SELECT_ACTIVE);
+    }
   });
 
   $("#" + SEND_RESUME_ATTACH_BUTTON_ID)
   .on("change", updateResumeChange);
 
+  $(window).resize(function(event) {
+    var file = getFile();
+    if (file) {
+      truncateFileName(file.name);
+    }
+  });
+
+  $("." + SEND_RESUME_NAME_CLASS).on("input", function(event) {
+    var nameError = $("." + SEND_RESUME_NAME_ERROR_CLASS);
+    hideError(nameError);
+  });
+
+  // handle modal window using bootstrap modal function
+  function handleModal(modalId, modalOperation) {
+    $("#" + modalId).modal(modalOperation);
+  };
+
   function updateResumeChange() {
     clearData();
-    var attach = $("#" + "modal-window-send-resume-attach-button-real")[0];
+    var attach = $("#" + SEND_RESUME_ATTACH_BUTTON_ID)[0];
     var file = getFile();
     if (file == null) return;
     $("." + SEND_RESUME_ATTACH_FILE_NAME_CLASS).text(file.name);
@@ -326,7 +453,7 @@
     if (validFileType(file)) {
       attach.setCustomValidity("");
     } else {
-      attach.setCustomValidity(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1);
+      attach.setCustomValidity(SEND_RESUME_ERROR_MESSAGE_1);
     }
   };
 
@@ -374,131 +501,68 @@
     return $("#" + SEND_RESUME_ATTACH_BUTTON_ID)[0].files[0];
   }
 
-  $(window).resize(function(event) {
-    var file = getFile();
-    if (file) {
-      truncateFileName(file.name);
-    }
-  });
-
   function isValidFormElements() {
-    var name = $("." + "modal-window-send-resume-vacancy-form-text-input")[0];
-    var nameError = $("." + "modal-window-send-resume-vacancy-form-text-input-error")[0];
-    var tel = $("." + "modal-window-send-resume-vacancy-form-tel-input")[0];
-    var telError = $("." + "modal-window-send-resume-vacancy-form-tel-input-error")[0];
-    var vacancy = $("." + "modal-window-send-resume-vacancy-form-list-select")[0];
-    var vacancyError = $("." + "modal-window-send-resume-vacancy-form-list-select-error")[0];
-    var attach = $("#" + "modal-window-send-resume-attach-button-real")[0];
-    var attachError = $("." + "modal-window-send-resume-attach-button-error")[0];
-    var checkbox = $("." + "modal-window-send-resume-agreement-checkbox-real")[0];
+    var name = $("." + SEND_RESUME_NAME_CLASS)[0];
+    var nameError = $("." + SEND_RESUME_NAME_ERROR_CLASS);
+    var tel = $("." + SEND_RESUME_TEL_CLASS)[0];
+    var telError = $("." + SEND_RESUME_TEL_ERROR_CLASS);
+    var vacancy = $("." + SEND_RESUME_SELECT_CLASS)[0];
+    var vacancyError = $("." + SEND_RESUME_SELECT_ERROR_CLASS);
+    var attach = $("#" + SEND_RESUME_ATTACH_BUTTON_ID)[0];
+    var attachError = $("." + SEND_RESUME_ATTACH_ERROR_CLASS);
+    var checkbox = $("." + SEND_RESUME_CHECKBOX_CLASS)[0];
 
     if (name.validity.valueMissing) {
-      name.focus();
-      if (nameError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        nameError.classList.toggle(HIDE_ELEMENT_CLASS);
-        nameError.classList.toggle("error");
-      }
+      handleError(name, nameError, SEND_RESUME_ERROR_MESSAGE_3);
       return false;
     }
     if (tel.validity.valueMissing) {
-      tel.focus();
-      if (telError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        telError.classList.toggle(HIDE_ELEMENT_CLASS);
-        telError.classList.toggle("error");
-      }
+      handleError(tel, telError, SEND_RESUME_ERROR_MESSAGE_3);
       return false;
     } else if (tel.validity.customError) {
-      tel.focus();
-      if (telError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        telError.classList.toggle(HIDE_ELEMENT_CLASS);
-        telError.classList.toggle("error");
-      }
+      handleError(tel, telError, SEND_RESUME_ERROR_MESSAGE_3);
       return false;
     }
     if (vacancy.validity.customError) {
-      vacancy.focus();
-      if (vacancyError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        vacancyError.classList.toggle(HIDE_ELEMENT_CLASS);
-        vacancyError.classList.toggle("error");
-      }
+      handleError(vacancy, vacancyError, SEND_RESUME_ERROR_MESSAGE_4);
       return false;
     }
     if (attach.validity.valueMissing) {
-      $("." + SEND_RESUME_ATTACH_ERROR_CLASS)
-        .text(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_2);
-      attach.focus();
-      if (attachError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        attachError.classList.toggle(HIDE_ELEMENT_CLASS);
-        attachError.classList.toggle("error");
-      }
+      handleError(attach, attachError, SEND_RESUME_ERROR_MESSAGE_2);
       return false;
     } else if (attach.validity.customError) {
-      $("." + SEND_RESUME_ATTACH_ERROR_CLASS)
-        .text(SEND_RESUME_ATTACH_FILE_ERROR_MESSAGE_1);
-      attach.focus();
-      if (attachError.classList.contains(HIDE_ELEMENT_CLASS)) {
-        attachError.classList.toggle(HIDE_ELEMENT_CLASS);
-        attachError.classList.toggle("error");
-      }
+      handleError(attach, attachError, SEND_RESUME_ERROR_MESSAGE_1);
       return false;
     }
     if (checkbox.validity.valueMissing) {
-      checkbox.focus();
+      handleError(checkbox, null, null);
       return false;
     }
 
     return true;
   }
 
-  $("." + "modal-window-send-resume-vacancy-form-text-input").on("input", function(event) {
-    var nameError = $("." + "modal-window-send-resume-vacancy-form-text-input-error")[0];
-    if (!nameError.classList.contains(HIDE_ELEMENT_CLASS)) {
-      nameError.classList.toggle(HIDE_ELEMENT_CLASS);
-      nameError.classList.toggle("error");
+  function handleError(element, error, errorMessage) {
+    element.focus();
+    if (error) {
+      error.text(errorMessage);
+      showError(error);
     }
-  });
+  }
 
-  $("#" + MODAL_WINDOW_SEND_RESUME_ID).on("shown.bs.modal", function(event) {
-    var telInput = $("." + "modal-window-send-resume-vacancy-form-tel-input");
-    var telError = $("." + "modal-window-send-resume-vacancy-form-tel-input-error")[0];
-    var vacancy = $("." + "modal-window-send-resume-vacancy-form-list-select");
-    var vacancyError = $("." + "modal-window-send-resume-vacancy-form-list-select-error")[0];
+  function showError(error) {
+    if (error.hasClass(HIDE_ELEMENT_CLASS)) {
+      error.removeClass(HIDE_ELEMENT_CLASS);
+      error.addClass(SEND_RESUME_ERROR_MARKER);
+    }
+  };
 
-    var pattern = new RegExp("\\+7 \\([0-9]{3}\\) [0-9]{3} - [0-9]{2} - [0-9]{2}");
-    telInput.on("blur", function(event) {
-      if (!pattern.test(telInput[0].value)) {
-        telInput[0].setCustomValidity("Заполните это поле");
-      } else {
-        telInput[0].setCustomValidity("");
-      }
-    });
-    var im = new Inputmask({
-      "mask": "+7 (999) 999 - 99 - 99",
-      "oncomplete": function() {
-        if (!telError.classList.contains(HIDE_ELEMENT_CLASS)) {
-          telError.classList.toggle(HIDE_ELEMENT_CLASS);
-          telError.classList.toggle("error");
-        }
-      }
-    });
-    im.mask(telInput);
-
-    vacancy[0].setCustomValidity("Выберите вакансию");
-    vacancy.on("change", function(event) {
-      var option = vacancy.find(":selected");
-      if (option[0].value != "default") {
-        vacancy[0].setCustomValidity("");
-        if (!vacancyError.classList.contains(HIDE_ELEMENT_CLASS)) {
-          vacancyError.classList.toggle(HIDE_ELEMENT_CLASS);
-          vacancyError.classList.toggle("error");
-        }
-      } else {
-        vacancy[0].setCustomValidity("Выберите вакансию");
-      }
-    });
-  });
-
-
+  function hideError(error) {
+    if (!error.hasClass(HIDE_ELEMENT_CLASS)) {
+      error.addClass(HIDE_ELEMENT_CLASS);
+      error.removeClass(SEND_RESUME_ERROR_MARKER);
+    }
+  }
 
 /* modal window send resume end */
 /* modal window success */
