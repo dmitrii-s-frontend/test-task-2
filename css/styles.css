@@ -597,7 +597,8 @@
 .modal-window-custom-select-option {
   padding: 10px 10px;
 }
-.modal-window-custom-select-option:hover {
+.modal-window-custom-select-option:hover,
+.modal-window-custom-select-option:active {
   background-color: #3399ff;
 }
 .modal-window-send-resume-attach-text-title {
