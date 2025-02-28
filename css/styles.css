@@ -287,6 +287,7 @@
   overflow: hidden;
 }
 .products-section-swiper-container {
+  position: relative;
   line-height: 0;
 }
 .products-section-swiper-wrapper {}
