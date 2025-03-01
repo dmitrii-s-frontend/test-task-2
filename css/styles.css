@@ -262,6 +262,8 @@
 /* products section */
 .products-section {
   padding: 45px 0;
+/*  height: 432px;*/
+  min-height: 432px;
 }
 .products-section-wrapper {}
 .products-section-header {
@@ -283,6 +285,7 @@
 .ui-tabs .products-section-ui-tabs-panel {
   padding: 5px 0px 50px;
   width: 360px;
+  height: 220px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -319,14 +322,14 @@
 .products-section-swiper-button-prev {
   left: 3.9%; /* 14 / 360 * 100 = 3.9% */
 }
-.products-section-swiper-button-next:after,
-.products-section-swiper-button-prev:after {
+.products-section-swiper-button-next::after,
+.products-section-swiper-button-prev::after {
   font-size: 0;
 }
-.products-section-swiper-button-next:after {
+.products-section-swiper-button-next::after {
   content: url('../img/svg/arrow-right-mobile.svg');
 }
-.products-section-swiper-button-prev:after {
+.products-section-swiper-button-prev::after {
   content: url('../img/svg/arrow-left-mobile.svg');
 }
 .products-section-swiper-container .swiper-notification {
@@ -358,6 +361,7 @@
   background-color: #111311;
   font-size: 14px;
   line-height: 20px;
+  min-height: 897px;
 }
 .career-section-wrapper {
   width: 320px;
@@ -441,14 +445,14 @@
 .career-section-swiper-button-prev {
   left: -7px;
 }
-.career-section-swiper-button-next:after,
-.career-section-swiper-button-prev:after {
+.career-section-swiper-button-next::after,
+.career-section-swiper-button-prev::after {
   font-size: 0;
 }
-.career-section-swiper-button-next:after {
+.career-section-swiper-button-next::after {
   content: url('../img/svg/arrow-right-mobile.svg');
 }
-.career-section-swiper-button-prev:after {
+.career-section-swiper-button-prev::after {
   content: url('../img/svg/arrow-left-mobile.svg');
 }
 .career-section-swiper-container .swiper-notification {
@@ -667,7 +671,7 @@
   gap: 5px;
 }
 .modal-window-send-resume-agreement-checkbox-real {}
-.modal-window-send-resume-agreement-checkbox-real:checked + span:before {
+.modal-window-send-resume-agreement-checkbox-real:checked + span::before {
   content: url('../img/svg/checkbox-select.svg');
   position: absolute;
 }

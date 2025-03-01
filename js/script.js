@@ -3,6 +3,9 @@
 /* common */
   var CLOSE_ICON_CLASS = "js-vacancies-page-icon-close";
   var MORE_ICON_CLASS = "js-vacancies-page-icon-more";
+  var HIDE_ELEMENT_CLASS = "d-none";
+  var PRODUCT_SECTION_TABS_CLASS = "products-section-tab-index";
+  var CAREER_SECTION_SLIDER_CLASS = "career-section-swiper-container";
 
   // toggle vacancy description
   function toggleDescriptionVisibility (iconId) {
@@ -33,11 +36,23 @@
       buttons[i].disabled = false;
     }
   });
+
+  // prevent page break
+  $(document).on("DOMContentLoaded", function(event) {
+    var sliderWrapperProducts = document.getElementsByClassName(PRODUCT_SECTION_TABS_CLASS)[0];
+    var sliderContainer = document.getElementsByClassName(CAREER_SECTION_SLIDER_CLASS)[0];
+
+    if (sliderWrapperProducts.classList.contains(HIDE_ELEMENT_CLASS)) {
+      sliderWrapperProducts.classList.toggle(HIDE_ELEMENT_CLASS);
+    }
+    if (sliderContainer.classList.contains(HIDE_ELEMENT_CLASS)) {
+      sliderContainer.classList.toggle(HIDE_ELEMENT_CLASS);
+    }
+  });
 /* common end */
 /* departments section */
   var VACANCIES_CLASS = "js-departments-section-vacancies";
   var UPPERCASE_CLASS = "text-uppercase";
-  var HIDE_ELEMENT_CLASS = "d-none";
 
   var VACANCY_CARD_HTML = "snippets/vacancy-card.html";
   var VACANCY_CARD_LIST_ITEM_HTML = "snippets/vacancy-card-list-item.html";
@@ -578,6 +593,5 @@
   $("#" + MODAL_WINDOW_BUTTON_ID).on("click", function(event) {
     window.location.href = LOCATION;
   });
-/* modal window success end */
 })();
                            /* VACANCIES PAGE END */
